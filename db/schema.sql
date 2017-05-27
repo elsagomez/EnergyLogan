@@ -17,3 +17,13 @@ CREATE TABLE projects(
   comments VARCHAR(500),
   PRIMARY KEY (project_id)
 );
+
+CREATE TABLE survey(
+	survey_id INT NOT NULL AUTO_INCREMENT,
+  project_id INT NOT NULL,
+  floor_number INT,
+  room VARCHAR(255) NOT NULL,
+  fixture_id INT NOT NULL,
+  quantity INT NOT NULL,
+  PRIMARY KEY (survey_id)
+);
