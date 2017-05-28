@@ -4,7 +4,7 @@
 
 // Dependencies
 // =============================================================
-var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -12,23 +12,42 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  // index route loads view.html
+  // index route loads index.handlebars homepage
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    res.render("index");
   });
 
-  // cms route loads cms.html
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  // TODO: login route loads login
+  app.get("/login", function(req, res) {
+    res.render("login");
   });
 
-  // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  // TODO: dashboard
+
+  // newprojectform route loads newprojectform.handlebars
+  app.get("/newprojectform", function(req, res) {
+    res.render("newprojectform");
   });
 
-  app.get("/authors", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
+  // TODO: decide whether to have page for all projects or, have partial handlebars for projects section to load on dashboard
+  app.get("/projects", function(req, res) {
+    db.Project.findAll({})
+    .then(function(dbProject) {
+      var hbsObject = {
+      projects: dbProject
+    };
+    console.log(hbsObject);
+    res.render("projects", hbsObject);
+    });
+
+  // TODO: edit/audit project page
+
+  // newsurvey route loads newsurvey.handlebars
+  app.get("/newsurvey", function(req, res) {
+    res.render("newsurvey");
   });
+
+  // TODO: edit/audit survey page 
+
 
 };
