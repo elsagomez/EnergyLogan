@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Find all Projects and return them to the user with res.json
+  // Find all Surveys and return them to the user with res.json
   app.get("/api/surveys", function(req, res) {
     db.Survey.findAll({}).then(function(dbSurvey) {
       res.json(dbSurvey);
@@ -9,10 +9,10 @@ module.exports = function(app) {
   });
 
   app.get("/api/surveys/:id", function(req, res) {
-     // find all survey data by project id
+     // find all survey data by survey id
     db.Survey.findOne({
       where: {
-        project_id: req.params.id
+        survey_id: req.params.id
       }
     }).then(function(dbSurvey) {
       res.json(dbSurvey);

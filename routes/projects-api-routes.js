@@ -1,40 +1,40 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Find all Authors and return them to the user with res.json
-  app.get("/api/authors", function(req, res) {
-    db.Author.findAll({}).then(function(dbAuthor) {
-      res.json(dbAuthor);
+  // Find all Projects and return them to the user with res.json
+  app.get("/api/projects", function(req, res) {
+    db.Project.findAll({}).then(function(dbProject) {
+      res.json(dbProject);
     });
   });
 
-  app.get("/api/authors/:id", function(req, res) {
-     // Find one Author with the id in req.params.id and return them to the user with res.json
-    db.Author.findOne({
+  app.get("/api/projects/:id", function(req, res) {
+     // Find one Project with the id in req.params.id and return them to the user with res.json
+    db.Project.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbProject) {
+      res.json(dbProject);
     });
   });
 
-  app.post("/api/authors", function(req, res) {
-     // Create an Author with the data available to us in req.body
+  app.post("/api/projects", function(req, res) {
+     // Create an Project with the data available to us in req.body
     console.log(req.body);
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    db.Project.create(req.body).then(function(dbProject) {
+      res.json(dbProject);
     });
   });
 
-  app.delete("/api/authors/:id", function(req, res) {
-    // Delete the Author with the id available to us in req.params.id
-    db.Author.destroy({
+  app.delete("/api/projects/:id", function(req, res) {
+    // Delete the Project with the id available to us in req.params.id
+    db.Project.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbProject) {
+      res.json(dbProject);
     });
   });
 
