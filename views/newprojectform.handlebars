@@ -1,0 +1,181 @@
+<div class="container">
+        <h2>New Project</h2>
+        <hr>
+        <h3><strong>Project Info</strong></h3>
+        <h4>Project Name</h4>
+        <input type="text" name="" onBlur="validateForm()" id="project_name" class="form-control" required>
+        <span id="err-pname"></span>
+        <h4>Customer</h4>
+        <input type="text" name="" onBlur="validateForm()" id="customer" class="form-control" required>
+        <span id="err-cust"></span>
+        <h4>Address</h4>
+        <input type="text" name="" onBlur="validateForm()" id="address" class="form-control" required>
+        <span id="err-addr"></span>
+        <h4>Contact Name</h4>
+        <input type="text" name="" onBlur="validateForm()" id="contact_name" class="form-control" required>
+        <span id="err-cname"></span>
+        <h4>Contact Number</h4>
+        <input type="text" name="" onBlur="validateForm()" id="contact_number" class="form-control" required>
+        <span id="err-cnumb"></span>
+        <h4>Account Number</h4>
+        <input type="text" name="" onBlur="validateForm()" id="account_number" class="form-control" required>
+        <span id="err-acnumb"></span>
+        <h4>Number of Floors</h4>
+        <input type="text" name="" onBlur="validateForm()" id="number_of_floors" class="form-control" required>
+        <span id="err-numflrs"></span>
+        <h4>Other Floors</h4>
+        <input type="text" name="" onBlur="validateForm()" id="other" class="form-control" required>
+        <span id="err-otherflrs"></span>
+        <h4>Scheduled Survey Date</h4>
+        <input type="text" name="" onBlur="validateForm()" id="scheduled_date" class="form-control" required>
+        <span id="err-sched"></span>
+        <h4>Comments</h4>
+        <input type="text" name="" onBlur="validateForm()" id="comments" class="form-control" required>
+        <span id="err-comments"></span>
+        <hr>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+        </button>
+        <hr>
+        <footer class="footer">
+            <div class="container">
+                <!-- <p><a href="/api/projects">API Friends List</a> |  --><a href="https://github.com/elsagomez/EnergyLogan">GitHub Repo</a></p>
+            </div>
+        </footer>
+    </div>
+    <!-- Modal -->
+    <div id="resultsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title"><strong>Project Added</strong></h2>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    // Chosen CSS
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {
+            allow_single_deselect: true
+        },
+        '.chosen-select-no-single': {
+            disable_search_threshold: 10
+        },
+        '.chosen-select-no-results': {
+            no_results_text: 'Oops, nothing found!'
+        },
+        '.chosen-select-width': {
+            width: "95%"
+        }
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+    // Capture the form inputs 
+    $("#submit").on("click", function() {
+
+        // Form validation
+        function validateForm() {
+            var isValid = true;
+            $('.form-control').each(function() {
+                if ($(this).val() === '')
+                    isValid = false;
+            });
+
+            $('.chosen-select').each(function() {
+
+                if ($(this).val() === "")
+                    isValid = false
+            })
+            return isValid;
+        }
+
+        // If all required fields are filled
+        if (validateForm() == true) {
+            // Create an object for the user's data
+            var projectData = {
+                project_name: $("#project_name").val(),
+                customer: $("#customer").val(),
+                address: $("#address").val(),
+                contact_name: $("#contact_name").val(),
+                contact_number: $("#contact_number").val(),
+                account_number: $("#account_number").val(),
+                number_of_floors: $("#number_of_floors").val(),
+                other: $("#other").val(),
+                scheduled_date: $("#scheduled_date").val(),
+                comments: $("#comments").val(),
+            }
+
+
+            // Grab the URL of the website
+            var currentURL = window.location.origin;
+
+            // AJAX post the data to the projects API. 
+            $.post(currentURL + "/api/projects", projectData, function(data) {
+
+                // Show the modal  
+                $("#resultsModal").modal('toggle');
+
+            });
+        } else {
+            alert("Please fill out all fields before submitting!");
+        }
+
+        return false;
+    });
+
+    // function validateField() {
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#customer").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
+
+
+    //     switch (true) {
+    //         case $("#project_name").val.trim.length == 0:
+    //             $("#err-pname").text = "Enter a Project Name"
+    //             break;
+    //         case a === b:
+    //             console.log(0);
+    //             break;
+    //         case a < b:
+    //             console.log(-1);
+    //             break;
+    //         default:
+    //             console.log(1);
+    //     }
+    // }
+    </script>

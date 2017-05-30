@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   app.get("/api/surveys/:id", function(req, res) {
      // find all survey data by survey id
-    db.Survey.findOne({
+    db.Survey.findAll({
       where: {
         survey_id: req.params.id
       }
