@@ -39,6 +39,7 @@ module.exports = function(app) {
     console.log(hbsObject);
     res.render("projects", hbsObject);
     });
+  });
 
   // TODO: edit/audit project page
 
