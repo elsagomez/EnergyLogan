@@ -1,0 +1,33 @@
+#room{
+	width:250px;
+	margin-right:20px;
+}
+
+#fixture {
+	width: 450px;
+	margin-right:20px;
+
+}
+
+#num_fixture {
+	width:120px;
+	margin-right: 40px;
+}
+
+.headers{
+	background-color: gray;
+	color: white;
+	font-weight: bold;	
+}
+
+/*.headerRoom{
+	width:250px;
+}
+
+.headerFixture{
+	width: 500px;
+}
+
+.headerRoom{
+	width: 100px;
+}*/
