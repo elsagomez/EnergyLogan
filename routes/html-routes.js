@@ -45,7 +45,7 @@ module.exports = function(app) {
 
   // newsurvey route loads newsurvey.handlebars
   app.get("/newsurvey", function(req, res) {
-    res.render("newsurvey");
+    res.render("newsurveyform");
   });
 
   // TODO: edit/audit survey page 
