@@ -39,6 +39,7 @@ module.exports = function(app) {
     console.log(hbsObject);
     res.render("projects", hbsObject);
     });
+  });
 
   // TODO: edit/audit project page
 
@@ -47,7 +48,5 @@ module.exports = function(app) {
     res.render("newsurvey");
   });
 
-  // TODO: edit/audit survey page 
-
-
+  // TODO: edit/audit survey page
 };
