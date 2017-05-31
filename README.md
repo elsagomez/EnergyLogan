@@ -20,3 +20,7 @@ composite primary key
 https://stackoverflow.com/questions/36883437/sequelize-foreign-keys-as-composite-primary-key  
 getter setter  
 http://docs.sequelizejs.com/manual/tutorial/models-definition.html#defining-as-part-of-a-property  
+
+-------  
+VIRTUAL datatype for passwords, and possible calculated values  
+http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes  
