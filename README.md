@@ -15,7 +15,7 @@ forms - utilize onBlur for form validation
 https://stackoverflow.com/questions/14702190/to-show-error-message-without-alert-box-in-java-script  
 https://www.w3schools.com/js/tryit.asp?filename=tryjs_validation_number  
 
--------  
+-------  
 composite primary key 
 https://stackoverflow.com/questions/36883437/sequelize-foreign-keys-as-composite-primary-key  
 getter setter  
