@@ -23,7 +23,20 @@ CREATE TABLE survey(
   project_id INT NOT NULL,
   floor_number INT,
   room VARCHAR(255) NOT NULL,
-  fixture_id INT NOT NULL,
+  fixture_id VARCHAR(255) NOT NULL,
   quantity INT NOT NULL,
   PRIMARY KEY (survey_id)
 );
+
+CREATE TABLE fixtures(
+  fixture_id VARCHAR(100) NOT NULL,
+  lamp_code VARCHAR(100),
+  type VARCHAR(100),
+  description VARCHAR(255),
+  ballast VARCHAR(100),
+  num_lamps INT,
+  watts_per_lamp INT,
+  watts_per_fixture INT,
+  PRIMARY KEY (fixture_id)
+);
+
