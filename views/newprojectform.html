@@ -51,7 +51,7 @@
         <input type="text" name="" onBlur="validateField(scheduled_date)" id="scheduled_date" class="form-control" required>
         <span class="survey-error-span" id="err-sched"></span>
         <h4>Comments</h4>
-        <input type="text" name="" onBlur="validateField(comments)" id="comments" class="form-control" required>
+        <input type="text" name="" onBlur="validateField(comments)" id="comments" class="form-control">
         <span class="survey-error-span" id="err-comments"></span>
         <hr>
         <!-- Submit Button -->
@@ -134,9 +134,13 @@
                 num_floors: $("#num_floors").val(),
                 other: $("#other").val()
                 // TODO: add scheduled date and comments to project model
-                // scheduled_date: $("#scheduled_date").val(),
-                // comments: $("#comments").val(),
+                scheduled_date: $("#scheduled_date").val(),
+                comments: $("#comments").val(),
             }
+
+            // if($("#comments").val().length!==0) {
+            //   projectData.comments = $("#comments").val();
+            // }
 
 
             // Grab the URL of the website
@@ -219,13 +223,6 @@
                 {
                     if ($("#scheduled_date").val().trim().length === 0) {
                         $("#err-sched").text("Enter a Date");
-                    }
-                };
-                break;
-            case comments:
-                {
-                    if ($("#comments").val().trim().length === 0) {
-                        $("#err-comments").text("Enter additional comments");
                     }
                 };
                 break;

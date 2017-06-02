@@ -3,35 +3,35 @@
         <hr>
         <h3><strong>Project Info</strong></h3>
         <h4>Project Name</h4>
-        <input type="text" name="" onBlur="validateField(project_name)" id="project_name" class="form-control" required>
-        <span class="survey-error-span" id="err-pname"></span>
+        <input type="text" name="" onBlur="validateForm()" id="project_name" class="form-control" required>
+        <span id="err-pname"></span>
         <h4>Customer</h4>
-        <input type="text" name="" onBlur="validateField(customer)" id="customer" class="form-control" required>
-        <span class="survey-error-span" id="err-cust"></span>
+        <input type="text" name="" onBlur="validateForm()" id="customer" class="form-control" required>
+        <span id="err-cust"></span>
         <h4>Address</h4>
-        <input type="text" name="" onBlur="validateField(address)" id="address" class="form-control" required>
-        <span class="survey-error-span" id="err-addr"></span>
+        <input type="text" name="" onBlur="validateForm()" id="address" class="form-control" required>
+        <span id="err-addr"></span>
         <h4>Contact Name</h4>
-        <input type="text" name="" onBlur="validateField(contact_name)" id="contact_name" class="form-control" required>
-        <span class="survey-error-span" id="err-cname"></span>
+        <input type="text" name="" onBlur="validateForm()" id="contact_name" class="form-control" required>
+        <span id="err-cname"></span>
         <h4>Contact Number</h4>
-        <input type="text" name="" onBlur="validateField(contact_number)" id="contact_number" class="form-control" required>
-        <span class="survey-error-span" id="err-cnumb"></span>
+        <input type="text" name="" onBlur="validateForm()" id="contact_number" class="form-control" required>
+        <span id="err-cnumb"></span>
         <h4>Account Number</h4>
-        <input type="text" name="" onBlur="validateField(account_number)" id="account_number" class="form-control" required>
-        <span class="survey-error-span" id="err-acnumb"></span>
+        <input type="text" name="" onBlur="validateForm()" id="account_number" class="form-control" required>
+        <span id="err-acnumb"></span>
         <h4>Number of Floors</h4>
-        <input type="text" name="" onBlur="validateField(num_floors)" id="num_floors" class="form-control" required>
-        <span class="survey-error-span" id="err-numflrs"></span>
+        <input type="text" name="" onBlur="validateForm()" id="num_floors" class="form-control" required>
+        <span id="err-numflrs"></span>
         <h4>Other Floors</h4>
-        <input type="text" name="" onBlur="validateField(other)" id="other" class="form-control" required>
-        <span class="survey-error-span" id="err-otherflrs"></span>
+        <input type="text" name="" onBlur="validateForm()" id="other" class="form-control" required>
+        <span id="err-otherflrs"></span>
         <h4>Scheduled Survey Date</h4>
-        <input type="text" name="" onBlur="validateField(scheduled_date)" id="scheduled_date" class="form-control" required>
-        <span class="survey-error-span" id="err-sched"></span>
+        <input type="text" name="" onBlur="validateForm()" id="scheduled_date" class="form-control" required>
+        <span id="err-sched"></span>
         <h4>Comments</h4>
-        <input type="text" name="" onBlur="validateField(comments)" id="comments" class="form-control" required>
-        <span class="survey-error-span" id="err-comments"></span>
+        <input type="text" name="" onBlur="validateForm()" id="comments" class="form-control" required>
+        <span id="err-comments"></span>
         <hr>
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
@@ -111,10 +111,9 @@
                 contact_number: $("#contact_number").val(),
                 account_number: $("#account_number").val(),
                 num_floors: $("#num_floors").val(),
-                other: $("#other").val()
-                // TODO: add scheduled date and comments to project model
-                // scheduled_date: $("#scheduled_date").val(),
-                // comments: $("#comments").val(),
+                other: $("#other").val(),
+                scheduled_date: $("#scheduled_date").val(),
+                comments: $("#comments").val(),
             }
 
 
@@ -135,156 +134,48 @@
         return false;
     });
 
-    function validateField(field) {
+    // function validateField() {
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        switch (field) {
-            case project_name:
-                {
-                    if ($("#project_name").val().trim().length === 0) {
-                        $("#err-pname").text("Enter a Project Name");
-                    }
-                };
-                break;
-            case customer:
-                {
-                    if ($("#customer").val().trim().length === 0) {
-                        $("#err-cust").text("Enter a Customer Name");
-                    }
-                };
-                break;
-            case address:
-                {
-                    if ($("#address").val().trim().length === 0) {
-                        $("#err-addr").text("Enter an Address");
-                    }
-                };
-                break;
-            case contact_name:
-                {
-                    if ($("#contact_name").val().trim().length === 0) {
-                        $("#err-cname").text("Enter a Customer Name");
-                    }
-                };
-                break;
-            case contact_number:
-                {
-                    if ($("#contact_number").val().trim().length === 0) {
-                        $("#err-cnumb").text("Enter a Contact Number");
-                    }
-                };
-                break;
-            case account_number:
-                {
-                    if ($("#account_number").val().trim().length === 0) {
-                        $("#err-acnumb").text("Enter an Account Number");
-                    }
-                };
-                break;
-            case num_floors:
-                {
-                    if ($("#num_floors").val().trim().length === 0) {
-                        $("#err-numflrs").text("Enter the Number of Floors");
-                    }
-                };
-                break;
-            case other:
-                {
-                    if ($("#other").val().trim().length === 0) {
-                        $("#err-otherflrs").text("Enter Other Floors");
-                    }
-                };
-                break;
-            case scheduled_date:
-                {
-                    if ($("#scheduled_date").val().trim().length === 0) {
-                        $("#err-sched").text("Enter a Date");
-                    }
-                };
-                break;
-            case comments:
-                {
-                    if ($("#comments").val().trim().length === 0) {
-                        $("#err-comments").text("Enter additional comments");
-                    }
-                };
-                break;
-            default:
-                console.log("ok");
-        }
+    //     if ($("#customer").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#project_name").val().trim().length === 0) {
-        //     $("#err-pname").text("Enter a Project Name");
-        // }
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#customer").val().trim().length === 0) {
-        //     $("#err-cust").text("Enter a Project Name");
-        // }
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#address").val().trim().length === 0) {
-        //     $("#err-addr").text("Enter a Project Name");
-        // }
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#contact_name").val().trim().length === 0) {
-        //     $("#err-cname").text("Enter a Project Name");
-        // }
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#contact_number").val().trim().length === 0) {
-        //     $("#err-cnumb").text("Enter a Project Name");
-        // }
+    //     if ($("#project_name").val.trim.length == 0) {
+    //         $("#err-pname").text = "Enter a Project Name";
+    //     }
 
-        // if ($("#account_number").val().trim().length === 0) {
-        //     $("#err-acnumb").text("Enter a Project Name");
-        // }
 
-        // if ($("#num_floors").val().trim().length === 0) {
-        //     $("#err-numflrs").text("Enter a Project Name");
-        // }
-
-        // if ($("#other").val().trim().length === 0) {
-        //     $("#err-otherflrs").text("Enter a Project Name");
-        // }
-
-        // if ($("#scheduled_date").val().trim().length === 0) {
-        //     $("#err-sched").text("Enter a Project Name");
-        // }
-
-        // if ($("#comments").val().trim().length === 0) {
-        //     $("#err-comments").text("Enter a Project Name");
-        // }
-
-        // switch (true) {
-        //     case $("#project_name").val().trim().length === 0:
-        //         ("#err-pname").text("Enter a Project Name");
-        //         break;
-        // case $("#customer").val.trim.length == 0:
-        //     $("#err-cust").text = "Enter a Valid Customer Name"
-        //     break;
-        // case $("#address").val.trim.length == 0:
-        //     $("#err-addr").text = "Enter a Valid Address"
-        //     break;
-        // case $("#contact_name").val.trim.length == 0:
-        //     $("#err-cname").text = "Enter a Valid Contact Name"
-        //     break;
-        // case $("#contact_number").val.trim.length == 0:
-        //     $("#err-cnumb").text = "Enter a Valid Contact Number"
-        //     break;
-        // case $("#account_number").val.trim.length == 0:
-        //     $("#err-acnumb").text = "Enter a Valid Account Number"
-        //     break;
-        // case $("#num_floors").val.trim.length == 0:
-        //     $("#err-numflrs").text = "Enter a Valid Number of Floors"
-        //     break;
-        // case $("#other").val.trim.length == 0:
-        //     $("#err-otherflrs").text = "Enter a Valid Other Floor Name"
-        //     break;
-        // case $("#scheduled_date").val.trim.length == 0:
-        //     $("#err-sched").text = "Enter a Valid Survey Date"
-        //     break;
-        // case $("#comments").val.trim.length == 0:
-        //     $("#err-comments").text = "Enter a Valid Comment"
-        //     break;
-        //     default:
-        //         console.log(ok);
-        // }
-    };
+    //     switch (true) {
+    //         case $("#project_name").val.trim.length == 0:
+    //             $("#err-pname").text = "Enter a Project Name"
+    //             break;
+    //         case a === b:
+    //             console.log(0);
+    //             break;
+    //         case a < b:
+    //             console.log(-1);
+    //             break;
+    //         default:
+    //             console.log(1);
+    //     }
+    // }
     </script>
