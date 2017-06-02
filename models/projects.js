@@ -58,7 +58,16 @@ module.exports = function(sequelize, DataTypes){
       },
 
 
-  other: DataTypes.STRING
+    other: DataTypes.STRING,
+
+    scheduled_date: {
+        type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+  },
+    comments: DataTypes.STRING
 
   },
 
