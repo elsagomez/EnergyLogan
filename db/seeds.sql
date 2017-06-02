@@ -1,13 +1,13 @@
 USE energylogan_db;
 
 INSERT INTO projects
-  (project_name, customer, address, contact_name, contact_number, account_number, number_of_floors, other, scheduled_date)
+  (project_name, customer, address, contact_name, contact_number, account_number, num_floors, other, scheduled_date)
 VALUES 
   ("161 Newkirk", "Rutgers", "161 Newkirk, Jersey City, NJ", "John Doe", "2015555555", "101000123", "15", "Basement", "2017-06-01"), 
   ("101 Easy Street", "Wall Street Inc.", "101 Easy Street, NY", "Jack Moneybags", "2127777777", "201000777", "25", "N/A", "2017-07-11"),
   ("Cruise Plaza", "My Caribbean Cruises", "555 Carribean Way, Miami, FL", "Jack Sparrow", "8351234567", "107000333", "20", "Boiler Room", "2017-06-29"); 
 
-INSERT INTO survey
+INSERT INTO surveys
   (project_id, floor_number, room, fixture_id, quantity)
 VALUES 
 	(1, 1, "Hallway", "CF26/4-L", 200),

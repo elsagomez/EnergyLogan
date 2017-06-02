@@ -1,16 +1,22 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Find all Surveys and return them to the user with res.json
-  app.get("/api/surveys", function(req, res) {
-    db.Survey.findAll({}).then(function(dbSurvey) {
+  // // Find all Surveys and return them to the user with res.json
+  // app.get("/api/surveys", function(req, res) {
+  //   db.Surveys.findAll({}).then(function(dbSurvey) {
+  //     res.json(dbSurvey);
+  //   });
+  // });
+
+  app.get("/api/survey", function(req, res) {
+    db.Surveys.findAll({}).then(function(dbSurvey) {
       res.json(dbSurvey);
     });
   });
 
   app.get("/api/surveys/:id", function(req, res) {
      // find all survey data by survey id
-    db.Survey.findAll({
+    db.Surveys.findAll({
       where: {
         survey_id: req.params.id
       }
@@ -19,17 +25,41 @@ module.exports = function(app) {
     });
   });
 
+app.get("/api/projects/progress/:id", function(req, res) {
+    var floors;
+     //find number of floors planned on projects table, and count number of unique floors worked on in surveys table
+    db.Surveys.findAll({
+      where: {
+        project_id: req.params.id
+      }, include: [Projects]
+    }).then(function(dbSurvey) {
+              res.json(dbSurvey);
+            });
+          });
+
+          // app.get("/api/projects/:id", function(req, res) {
+
+      //   db.Surveys.findAll({
+      //     where: {
+      //       project_id: req.params.id
+      //     },include: [Projects]
+      //   }).then(function(dbSurvey) {
+      //     res.json(dbSurvey);
+      //   });
+      // });
+
+
   app.post("/api/surveys", function(req, res) {
      // Create an Survey with the data available to us in req.body
     console.log(req.body);
-    db.Survey.create(req.body).then(function(dbSurvey) {
+    db.Surveys.create(req.body).then(function(dbSurvey) {
       res.json(dbSurvey);
     });
   });
 
   app.delete("/api/surveys/:id", function(req, res) {
     // Delete the Survey with the id available to us in req.params.id
-    db.Survey.destroy({
+    db.Surveys.destroy({
       where: {
         id: req.params.id
       }
