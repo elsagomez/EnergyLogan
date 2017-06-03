@@ -23,6 +23,9 @@ module.exports = function(app) {
   });
 
   // TODO: dashboard
+  app.get("/dashboard", function(req, res) {
+    res.render("dashboard");
+  });
 
   // newprojectform route loads newprojectform.handlebars
   app.get("/newprojectform", function(req, res) {
@@ -48,7 +51,5 @@ module.exports = function(app) {
     res.render("newsurveyform");
   });
 
-  // TODO: edit/audit survey page 
-
-
+  // TODO: edit/audit survey page
 };
