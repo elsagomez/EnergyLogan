@@ -27,6 +27,35 @@ module.exports = function(app) {
     });
   });
 
+//     app.get("/api/search/:term", function(req, res) {
+//       let term = req.params.term
+      
+//       if(term == undefined) {
+//         console.log("HEY! ")
+//       } else {
+//         console.log(term)
+// // let willie = {
+// //   hola: "hi",
+// //   chau: "bye"
+// // }
+
+// // res.json(willie)
+// // }
+
+
+//     db.Prefixtures.findAll({where: {
+
+//     pre_type: "CFL"
+    
+//   }}).then(function(dbProject) {
+//       res.json(dbProject[0]);
+//       console.log(dbProject[0].Instance.dataValues);
+//     });
+        
+//       }
+
+//   });
+
   app.delete("/api/projects/:id", function(req, res) {
     // Delete the Project with the id available to us in req.params.id
     db.Project.destroy({

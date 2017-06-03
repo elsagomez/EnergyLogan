@@ -27,3 +27,15 @@ CREATE TABLE survey(
   quantity INT NOT NULL,
   PRIMARY KEY (survey_id)
 );
+
+CREATE TABLE PreFixtures (
+    preFixID varchar(50),
+    pre_lampCode varchar(255),
+    pre_type varchar(255),
+    pre_desccription varchar(255),
+    pre_ballast varchar(255),
+    pre_lampNum int,
+    pre_watts int,
+    pre_wattsPerFix int,
+    primary key (preFixID)
+);
