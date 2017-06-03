@@ -4,11 +4,13 @@ USE energylogan_db;
 
 CREATE TABLE users(
   user_id INT NOT NULL AUTO_INCREMENT,
-  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
   user_type VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
+  createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (user_id)
-)
+);
 
 ##Projects Table
 CREATE TABLE projects(
