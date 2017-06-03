@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    
 </head>
 
 <body>
@@ -20,28 +25,25 @@
                 <li role="presentation"><a href="#">Dashboard</a></li>
                 <li role="presentation"><a href="#">Messages</a></li>
             </ul>
-
         </nav>
     </div>
     <br>
     <br>
     <div class="container">
-       <div class="row">
-  <div class="col-md-6"><h4>Building:</h4></div>
-
-
-<div class="col-md-2"><h4>Floor:</h4></div>
-
-
-  <div class="col-md-4">
-  <form class="form-inline">
-  <div class="form-group ">
-    <label for="goFloor"><h4>Go to floor:</h4></label>
-    <input type="text" class="form-control input-mini" id="goFloor" placeholder="#">
-  </div>
-  </form>
-  </div>
-
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Building:</h4></div>
+            <div class="col-md-2">
+                <h4>Floor:</h4></div>
+            <div class="col-md-4">
+                <form class="form-inline">
+                    <div class="form-group ">
+                        <label for="goFloor">
+                            <h4>Go to floor:</h4></label>
+                        <input type="text" class="form-control input-mini" id="goFloor" placeholder="#">
+                    </div>
+                </form>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table class="table table-striped">
@@ -55,31 +57,31 @@
                         <tbody>
                         </tbody>
                     </table>
-                  </div>
                 </div>
-                    <div class="panel panel-default">
-                     <div class="panel-body">
-                        <form id="roomLine" class="form-inline">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="room" placeholder="room" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="fixture" placeholder="fixture" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="num_fixture" placeholder="# of fixtures" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-user-plus" aria-hidden="true"></i>Add row</button>
-                        </form>
-                    </div>
-                    </div>
-                     <div class="panel panel-default">
-                     <button type="submit" class="btn btn-success btn-lg" id="nextFloor"><i class="fa fa-user-plus" aria-hidden="true"></i>Go to next Floor</button>
-
-                     </div>
-
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form id="roomLine" class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="room" placeholder="room" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control ui-autocomplete-input" id="fixture" placeholder="fixture" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="num_fixture" placeholder="# of fixtures" autocomplete="off" required>
+                        </div>
+                        <!-- <div class="form-group">
+                           <input type="file" class="form-control" accept="video/*;capture=camcorder">Take pic</input>
+                        </div> -->
+                        <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-user-plus" aria-hidden="true"></i>Add row</button>
+                    </form>
                 </div>
-            
+            </div>
+            <div class="panel panel-default">
+                <button type="submit" class="btn btn-success btn-lg" id="nextFloor"><i class="fa fa-user-plus" aria-hidden="true"></i>Go to next Floor</button>
+            </div>
+        </div>
         <script src="js/survey.js"></script>
 </body>
 

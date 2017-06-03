@@ -2,6 +2,14 @@ CREATE DATABASE energylogan_db;
 
 USE energylogan_db;
 
+CREATE TABLE users(
+  user_id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  user_type VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (user_id)
+)
+
 ##Projects Table
 CREATE TABLE projects(
   project_id INT NOT NULL AUTO_INCREMENT,
@@ -32,6 +40,19 @@ CREATE TABLE surveys(
   PRIMARY KEY (survey_id)
 );
 
+<<<<<<< HEAD
+CREATE TABLE PreFixtures (
+    preFixID varchar(50),
+    pre_lampCode varchar(255),
+    pre_type varchar(255),
+    pre_desccription varchar(255),
+    pre_ballast varchar(255),
+    pre_lampNum int,
+    pre_watts int,
+    pre_wattsPerFix int,
+    primary key (preFixID)
+);
+=======
 CREATE TABLE fixtures(
   fixture_id VARCHAR(100) NOT NULL,
   lamp_code VARCHAR(100),
@@ -46,3 +67,4 @@ CREATE TABLE fixtures(
   PRIMARY KEY (fixture_id)
 );
 
+>>>>>>> 52c62a8f3c4953db7e7e4fc1df3c4b1d49428c31

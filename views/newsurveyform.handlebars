@@ -52,7 +52,7 @@
                                 <input type="text" class="form-control" id="fixture" placeholder="fixture" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="num_fixture" placeholder="# of fixtures" required>
+                                <input type="text" class="form-control fixture" name-"fixture" id="num_fixture" placeholder="# of fixtures" required>
                             </div>
                             <button type="submit" class="btn btn-primary" id="submit"><i class="fa fa-user-plus" aria-hidden="true"></i>Add row</button>
                         </form>
@@ -64,5 +64,18 @@
                      </div>
 
                 </div>
+
+                <script>
+      $(document).ready(function() {
+
+            $('input.fixture').typeahead({
+                name: 'pre_desccription',
+                remote: 'prefixture.php?query=%QUERY'
+
+            });
+
+        })
+</script>
             
         <script src="js/survey.js"></script>
+        <script src="js/autocomplete.js"></script>
