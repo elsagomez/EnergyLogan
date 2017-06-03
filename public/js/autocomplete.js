@@ -1,44 +1,26 @@
 $(document).ready(function() {
 var fixtureNames= ["Compact Fluorescent, 2D,10W lamp",
-
 "Compact Fluorescent, 11W lamp",
-
 "Compact Fluorescent, 2D, 16W lamp",
-
 "Compact Fluorescent, 18W lamp",
 "Compact Fluorescent, 2D, 21W lamp",
-
 "Compact Fluorescent, 23W lamp",
-
 "Compact Fluorescent, 26W lamp",
 "Compact Fluorescent, 2D, (1) 28W lamp",
-
 "Compact Fluorescent, (1) 32W lamp",
-
 "Compact Fluorescent, 2D, (1) 38W lamp",
-
 "Compact Fluorescent, (1) 42W lamp",
-
 "Compact Fluorescent, (1) 60W lamp",
-
 "Compact Fluorescent, (1) 65W lamp",
-
 "Compact Fluorescent, quad, (1) 10W lamp",
 "Compact Fluorescent, quad, (1) 13W lamp",
-
 "Compact Fluorescent, quad, (1) 15W lamp",
 "Compact Fluorescent, quad, (1) 17W lamp",
-
 "Compact Fluorescent, quad, (1) 18W lamp",
-
 "Compact Fluorescent, quad, (1) 20W lamp",
-
-
 "Compact Fluorescent, quad, (1) 25W lamp",
-
 "Compact Fluorescent, quad, (2) 9W lamp",
 "Compact Fluorescent, spiral, (1) 11W lamp",
-
 "Compact Fluorescent, spiral, (2) 13W lamp",
 "Compact Fluorescent, spiral, (1) 15W lamp",
 "Compact Fluorescent, spiral, (1) 18W lamp",

@@ -104,12 +104,16 @@ $(document).ready(function() {
 
     console.log(newRoomLine.room);
 
+
+
     var row = $("<tr>");
     var td = $("<td>" + newRoomLine.room + "</td>");
                 row.append(td);
     var td = $("<td>" + newRoomLine.fixture + "</td>");
                 row.append(td);
     var td = $("<td>" + newRoomLine.qty + "</td>");
+     row.append(td);
+    var td = $("<button>X</button>");
                 row.append(td);
 
     $("tbody").prepend(row);
