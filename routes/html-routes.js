@@ -14,22 +14,38 @@ module.exports = function(app) {
 
   // index route loads index.handlebars homepage
   app.get("/", function(req, res) {
-    res.render("login");
+    var hbsObject = {
+      title: "Energy Logan Application",
+      css : '<link rel="stylesheet" type="text/css" href="css/login.css">'
+    };
+    res.render("login",hbsObject);
   });
 
-  // TODO: login route loads login
+  // login route loads login page
   app.get("/login", function(req, res) {
-    res.render("login");
+    var hbsObject = {
+      title: "Energy Logan Application",
+      css : '<link rel="stylesheet" type="text/css" href="css/login.css">'
+    };
+    res.render("login",hbsObject);
   });
 
-  // TODO: dashboard
+  // dashboard route loads dashboard page
   app.get("/dashboard", function(req, res) {
-    res.render("dashboard");
+    var hbsObject = {
+      title: "Energy Logan Application: Dashboard",
+      css : '<link rel="stylesheet" type="text/css" href="css/dashboard.css">'
+    };
+    res.render("dashboard",hbsObject);
   });
 
   // newprojectform route loads newprojectform.handlebars
   app.get("/newprojectform", function(req, res) {
-    res.render("newprojectform");
+    var hbsObject = {
+      title: "Energy Logan Application: New Project Form",
+      css : '<!-- Chosen --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>'
+    };
+    res.render("newprojectform",hbsObject);
   });
 
   // TODO: decide whether to have page for all projects or, have partial handlebars for projects section to load on dashboard
@@ -48,7 +64,11 @@ module.exports = function(app) {
 
   // newsurvey route loads newsurvey.handlebars
   app.get("/newsurvey", function(req, res) {
-    res.render("newsurveyform");
+    var hbsObject = {
+      title: "Energy Logan Application: New Survey",
+      css : '<link rel="stylesheet" type="text/css" href="css/style.css">'
+    };
+    res.render("newsurveyform",hbsObject);
   });
 
   // TODO: edit/audit survey page
