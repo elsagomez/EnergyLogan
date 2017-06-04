@@ -1,10 +1,35 @@
-<div style="height: 400px; width: 300px; border: 1px">
-        <canvas id="doughnutChart" height="300" width="300"></canvas>
-        <h3 align="center" style="font-family:calibri; color: #f1c40f;">Project 1</h3>
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Energy Logan</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="tag"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li class="tag"><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+                <li class="tag dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">View<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Recent</a></li>
+                        <li><a href="#">Progress</a></li>
+                        <li><a href="#">Project ID</a></li>
+                    </ul>
+                </li>
+                <button class="btn navbar-btn">Add Project</button>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h3>Main Container</h3>
+        <p>Add text here.</p>
+        <div class="row">
+            <div class="col-md-3">
+                <canvas class="doughnutChart"></canvas>
+            </div>
+
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
     <script type="text/javascript">
-    var mychart = $("#doughnutChart").get(0).getContext("2d");
+    var mychart = $(".doughnutChart").get(0).getContext("2d");
     var doughnut = new Chart(mychart, {
         type: "doughnut",
         data: {
@@ -19,6 +44,11 @@
             legend: {
                 display: false
             },
+            title: {
+                display: true,
+                text: "",
+                position: "bottom"
+            },
             animation: {
                 animateScale: true,
                 onComplete: showProgress
@@ -29,11 +59,12 @@
     $(document).ready(function() {
         doughnut.data.datasets[0].data[0] = 90; //use sequalize to dynamically update data
         doughnut.data.datasets[0].data[1] = 10;
+        doughnut.options.title.text = "Project 1";
         doughnut.update();
     });
 
     function showProgress() {
-        var canvas = $("#doughnutChart");
+        var canvas = $(".doughnutChart");
         var context = canvas.get(0).getContext("2d");
         console.log(canvas);
         console.log(context);
