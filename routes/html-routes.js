@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   // index route loads index.handlebars homepage
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("login");
   });
 
   // TODO: login route loads login

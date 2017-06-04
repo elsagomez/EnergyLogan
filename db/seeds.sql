@@ -1,12 +1,12 @@
 USE energylogan_db;
 
 INSERT INTO users
-	(user_id, username, user_type, password)
+	(email, password, user_type)
 VALUES
-	("elsa.ghdz@gmail.com", "office", "password"),
-	("lawrence@gmail.com", "technical", "password"),
-	("april@gmail.com", "technical", "password"),
-	("alex@gmail.com", "technical", "password"),
+	("elsa.ghdz@gmail.com", "elsapass", "office"),
+	("lawrence@gmail.com", "lawpass", "technical"),
+	("april@gmail.com", "aprilpass", "office"),
+	("alex@gmail.com", "alexpass", "technical");
 
 
 INSERT INTO projects
