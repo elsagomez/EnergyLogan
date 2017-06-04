@@ -30,19 +30,6 @@ CREATE TABLE projects(
   PRIMARY KEY (project_id)
 );
 
-CREATE TABLE surveys(
-	survey_id INT NOT NULL AUTO_INCREMENT,
-  project_id INT NOT NULL,
-  floor_number INT,
-  room VARCHAR(255) NOT NULL,
-  fixture_id VARCHAR(255) NOT NULL,
-  quantity INT NOT NULL,
-  createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (survey_id)
-);
-
-<<<<<<< HEAD
 CREATE TABLE PreFixtures (
     preFixID varchar(50),
     pre_lampCode varchar(255),
@@ -54,19 +41,21 @@ CREATE TABLE PreFixtures (
     pre_wattsPerFix int,
     primary key (preFixID)
 );
-=======
-CREATE TABLE fixtures(
-  fixture_id VARCHAR(100) NOT NULL,
-  lamp_code VARCHAR(100),
-  type VARCHAR(100),
-  description VARCHAR(255),
-  ballast VARCHAR(100),
-  num_lamps INT,
-  watts_per_lamp INT,
-  watts_per_fixture INT,
+
+
+CREATE TABLE surveys(
+	survey_id INT NOT NULL AUTO_INCREMENT,
+  project_id INT NOT NULL,
+  prefixture_id varchar(50),
+  floor_number INT,
+  room VARCHAR(255) NOT NULL,
+  quantity INT NOT NULL,
   createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (fixture_id)
+  PRIMARY KEY (survey_id),
+  FOREIGN KEY (project_id) REFERENCES projects(project_id) ON DELETE CASCADE,
+  FOREIGN KEY (prefixture_id) REFERENCES PreFixtures(preFixID) ON DELETE CASCADE
+
 );
 
->>>>>>> 52c62a8f3c4953db7e7e4fc1df3c4b1d49428c31
+
