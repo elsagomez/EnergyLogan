@@ -13,14 +13,31 @@
 
     	{{#each surveys}}
             <tr>
-                <td>{{this.floor_number}}</td>
-                <td>{{this.room}}</td>
-                <td>{{this.PrefixturePreFixID}}</td>
-                <td>{{this.quantity}}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs edit-btn' data-id="{{this.survey_id}}" href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs delete-btn" data-id="{{this.survey_id}}"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td data-state="notediting" data-id="{{this.survey_id}}" class="datafield floorfield" data-value="{{this.floor_number}}">{{this.floor_number}}</td>
+                <td data-state="notediting" data-id="{{this.survey_id}}" class="datafield roomfield" data-value="{{this.room}}">{{this.room}}</td>
+                <td data-state="notediting" data-id="{{this.survey_id}}" class="datafield prefixfield" data-value="{{this.PrefixturePreFixID}}">{{this.PrefixturePreFixID}}</td>
+                <td data-state="notediting" data-id="{{this.survey_id}}" class="datafield quantityfield" data-value="'++'">{{this.quantity}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs edit-btn' data-state="notediting" data-submit-id="{{this.survey_id}}" href="#"><span class="glyphicon glyphicon-edit"></span> Save</a> <a href="#" class="btn btn-danger btn-xs delete-btn" data-id="{{this.survey_id}}"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
       	{{/each}}
 
     </table>
     </div>
 </div>
+
+<script type="text/javascript">
+    
+    $(".datafield").click(function(){
+
+        if ($(this).attr("data-state")==="notediting") {
+            $(this).html('<input type="text" class="edit-field" size=1 name="fname" value="'+$(this).attr("data-value")+'">')
+            $(this).attr("data-state","editing")
+        } else {
+            $(this).attr("data-value", $(this).attr("value"))
+        }
+        
+    });
+
+
+</script>
+
