@@ -32,23 +32,7 @@
             </div>
         </footer> -->
     </div>
-    <!-- Modal -->
-    <div id="resultsModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Project Added</strong></h2>
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script type="text/javascript">
         // Chosen CSS
         var config = {
@@ -104,16 +88,33 @@
                     comments: $("#comments").val()
                 };
 
+
+                var floorsArr = $("#floors").val().split(", ")
+
                 // Grab the URL of the website
                 var currentURL = window.location.origin;
 
                 // AJAX post the data to the projects API. 
                 $.post(currentURL + "/api/projects", projectData, function(data) {
+                
+                    alert("posted to projects")
 
-                    // Show the modal  
-                    $("#resultsModal").modal('toggle');
-
+                    // for each floor in floorsArr, post a new row in Floors table
+                    for (var i = 0; i < floorsArr.length; i++) {
+                        var floorData ={
+                            floor_number: floorsArr[i],
+                            project_id: data.project_id
+                        };
+                       
+                        $.post(currentURL + "/api/floors", floorData, function(data) {
+                            console.log('sucessfully posted to floors databse')
+                        });
+                    };
                 });
+
+
+
+               
             } else {
                 alert("Please fill out all fields before submitting!");
             }
