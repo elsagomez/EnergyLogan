@@ -80,6 +80,9 @@ module.exports = function(sequelize, DataTypes) {
                   Projects.hasMany(models.Surveys, {
                       onDelete: "cascade"
                   });
+                  Projects.hasMany(models.Floors, {
+                      onDelete: "cascade"
+                  });
               }
           }
       });

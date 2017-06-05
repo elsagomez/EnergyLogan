@@ -10,13 +10,21 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
-    },
-    project_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
     }
-  }
+  },
+    {
+      // We're saying that we want our Projects to have Floors
+      classMethods: {
+        associate: function(models) {
+          // A Projects (foreignKey) is required or a Floors can't be made
+          Floors.belongsTo(models.Projects, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+        }
+      }
+    }
   );
   return Floors;
 };
