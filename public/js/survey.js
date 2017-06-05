@@ -30,16 +30,6 @@ $(document).ready(function() {
 
     console.log(newRoomLine.room);
 
-    var currentURL = window.location.origin;
-
-     $.post(currentURL + "/api/surveys", projectData, function(data) {
-                
-                    alert("posted to surveys");
-                    window.location.href = "/dashboard";
-
-                  
-                });
-
 
 
     var row = $("<tr>");
