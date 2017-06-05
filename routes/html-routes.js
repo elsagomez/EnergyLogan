@@ -50,20 +50,19 @@ module.exports = function(app) {
 
   // Office view for individual project
   app.get("/office/project/:project_id", function(req, res) {
-    db.Projects.findAll({
+    db.Surveys.findAll({
       where: {
-        project_id: req.params.project_id
+        ProjectProjectId: req.params.project_id
       },
-      include: [db.Surveys],
-      group: ["Surveys.floor_number"]
+      include: [db.Projects]
     })
     .then(function(dbProject) {
       var hbsObject = {
-      projects: dbProject
+      surveys: dbProject
     };
     console.log(hbsObject);
-    // res.render("project-officeview", hbsObject);
-    res.json(dbProject)
+    res.render("project-officeview", hbsObject);
+    // res.json(dbProject)
     });
   });
 
