@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
             },
 
             account_number: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: true
             },
 
@@ -78,6 +78,9 @@ module.exports = function(sequelize, DataTypes) {
                   // Associating Projects with surveys
                   // When an Projects is deleted, also delete any associated surveys
                   Projects.hasMany(models.Surveys, {
+                      onDelete: "cascade"
+                  });
+                  Projects.hasMany(models.Floors, {
                       onDelete: "cascade"
                   });
               }

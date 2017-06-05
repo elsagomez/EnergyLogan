@@ -19,6 +19,8 @@ module.exports = function(app) {
     });
   });
 
+
+
 // app.get("/api/projects/progress/:id", function(req, res) {
 //     var floors;
 //      // Find one Project with the id in req.params.id and return them to the user with res.json
@@ -39,8 +41,16 @@ module.exports = function(app) {
     console.log(req.body);
     db.Projects.create(req.body).then(function(dbProject) {
       res.json(dbProject);
+      // res.redirect("/dashboard")
+
+      // floor_names hazme un split y guardamelo en esta variable (array)
+
+      // var array =[""] function{
+      //   agarra cada elemento del array y conviertelo en un registro de la tabla floors
+
+      })
     });
-  });
+ 
 
 //     app.get("/api/search/:term", function(req, res) {
 //       let term = req.params.term

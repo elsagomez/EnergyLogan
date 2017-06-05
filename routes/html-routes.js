@@ -48,15 +48,22 @@ module.exports = function(app) {
     res.render("newprojectform",hbsObject);
   });
 
-  // TODO: decide whether to have page for all projects or, have partial handlebars for projects section to load on dashboard
-  app.get("/projects", function(req, res) {
-    db.Project.findAll({})
+  // Office view for individual project
+  app.get("/office/project/:project_id", function(req, res) {
+    db.Surveys.findAll({
+      where: {
+        ProjectProjectId: req.params.project_id
+      },
+      include: [db.Projects]
+    })
     .then(function(dbProject) {
       var hbsObject = {
-      projects: dbProject
+      title: "Energy Logan Application: Project View",
+      surveys: dbProject
     };
     console.log(hbsObject);
-    res.render("projects", hbsObject);
+    res.render("project-officeview", hbsObject);
+    // res.json(dbProject)
     });
   });
 
