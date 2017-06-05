@@ -41,6 +41,7 @@ module.exports = function(app) {
     console.log(req.body);
     db.Projects.create(req.body).then(function(dbProject) {
       res.json(dbProject);
+      // res.redirect("/dashboard")
 
       // floor_names hazme un split y guardamelo en esta variable (array)
 

@@ -52,30 +52,45 @@ var doughnut = new Chart(mychart, {
         },
         animation: {
             animateScale: true,
-            onComplete: showProgress
+            onComplete: showPercentage
 
         }
     }
 });
 
-
-$(document).ready(function() {
-    doughnut.data.datasets[0].data[0] = 90; //use sequalize to dynamically update data
-    doughnut.data.datasets[0].data[1] = 10;
+// $(document).ready(function() {
+    doughnut.data.datasets[0].data[0] = 2/7; // numerator/denominator || use sequalize to dynamically update data
+    doughnut.data.datasets[0].data[1] = 5/7; // (denominator - numerator)/denominator;
     doughnut.options.title.text = "Project 1";
     doughnut.update();
-});
+    // });
 
-function showProgress() {
+    var floorString = "";
+    var denominator = 0;
+    var numerator = 0;
+
+    var currentURL = window.location.origin;
+    $.get(currentURL + "/api/projects", function(data) {
+        floorString = data[0].floors;
+        console.log("This is the floorString: " +floorString);
+        var allFloors = floorString.split(",");
+        for (var i = 0; i < allFloors.length; i++) {
+            allFloors[i] = allFloors[i].trim();
+        }
+        console.log("allFloors: " + allFloors);
+        denominator = allFloors.length;
+        console.log("denominator: " + denominator);
+
+    });
+
+function showPercentage() {
     var canvas = $(".doughnutChart");
     var context = canvas.get(0).getContext("2d");
-    console.log(canvas);
-    console.log(context);
-
+    //console.log(canvas);
+    //console.log(context);
 
     var cx = canvas.width / 2;
     var cy = canvas.height / 2;
-
 
     context.textAlign = 'center';
     context.textBaseline = 'middle';
