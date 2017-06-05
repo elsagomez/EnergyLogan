@@ -58,6 +58,7 @@ module.exports = function(app) {
     })
     .then(function(dbProject) {
       var hbsObject = {
+      title: "Energy Logan Application: Project View",
       surveys: dbProject
     };
     console.log(hbsObject);
