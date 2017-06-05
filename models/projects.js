@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
             },
 
             account_number: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: true
             },
 
