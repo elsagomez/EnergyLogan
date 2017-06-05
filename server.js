@@ -38,7 +38,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/surveys-api-routes.js")(app);
 require("./routes/projects-api-routes.js")(app);
 require("./routes/login-api-routes.js")(app);
-
+console.log("serversssssssssssssss");
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
