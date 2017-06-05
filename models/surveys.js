@@ -15,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        len: [1]
     }
   },
     {
@@ -48,13 +53,6 @@ module.exports = function(sequelize, DataTypes) {
       //     });
       //   }
       // }
-    },
-    {
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        len: [1]
-       }
     }
   );
   return Surveys;
