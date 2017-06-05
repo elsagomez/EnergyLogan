@@ -10,11 +10,11 @@ VALUES
 
 
 INSERT INTO projects
-  (project_name, customer, address, contact_name, contact_number, account_number, num_floors, other, scheduled_date)
+  (project_name, customer, address, contact_name, contact_number, account_number, floors, scheduled_date)
 VALUES 
-  ("161 Newkirk", "Rutgers", "161 Newkirk, Jersey City, NJ", "John Doe", "2015555555", "101000123", "15", "Basement", "2017-06-01"), 
-  ("101 Easy Street", "Wall Street Inc.", "101 Easy Street, NY", "Jack Moneybags", "2127777777", "201000777", "25", "N/A", "2017-07-11"),
-  ("Cruise Plaza", "My Caribbean Cruises", "555 Carribean Way, Miami, FL", "Jack Sparrow", "8351234567", "107000333", "20", "Boiler Room", "2017-06-29"); 
+  ("161 Newkirk", "Rutgers", "161 Newkirk, Jersey City, NJ", "John Doe", "2015555555", "101000123", "Basement, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15", "2017-06-01"), 
+  ("101 Easy Street", "Wall Street Inc.", "101 Easy Street, NY", "Jack Moneybags", "2127777777", "201000777", "10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30", "2017-07-11"),
+  ("Cruise Plaza", "My Caribbean Cruises", "555 Carribean Way, Miami, FL", "Jack Sparrow", "8351234567", "107000333", "3,5,7, 9, Boiler Room", "2017-06-29"); 
 
 
 
