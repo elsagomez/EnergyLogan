@@ -1,42 +1,4 @@
-    <div class="container">
-        <h2>New Project</h2>
-        <hr>
-        <h3><strong>Project Info</strong></h3>
-        <h4>Project Name</h4>
-        <input type="text" name="" id="project_name" class="form-control form-required" required>
-        <h4>Customer</h4>
-        <input type="text" name="" id="customer" class="form-control form-required" required>
-        <h4>Address</h4>
-        <input type="text" name="" id="address" class="form-control form-required" required>
-        <h4>Contact Name</h4>
-        <input type="text" name="" id="contact_name" class="form-control form-required" required>
-        <h4>Contact Number</h4>
-        <input type="text" name="" id="contact_number" class="form-control form-required" required>
-        <h4>Account Number</h4>
-        <input type="text" name="" id="account_number" class="form-control form-required" required>
-        <h4>Floors to be surveyed (please separate by comma)</h4>
-        <input type="text" name="" id="floors" class="form-control form-required" required>
-        <h4>Scheduled Survey Date (YYYY-MM-DD)</h4>
-        <input type="text" name="" id="scheduled_date" class="form-control form-required" required>
-        <h4>Comments</h4>
-        <input type="text" name="" id="comments" class="form-control">
-        <span class="survey-error-span" id="err-comments"></span>
-        <hr>
-        <!-- Submit Button -->  
-         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
-        </button>
 
-
-       
-<!--         <hr>
-        <footer class="footer">
-            <div class="container">
-                <a href="https://github.com/elsagomez/EnergyLogan">GitHub Repo</a></p>
-            </div>
-        </footer> -->
-    </div>
-
-    <script type="text/javascript">
         // Chosen CSS
         var config = {
             '.chosen-select': {},
@@ -110,11 +72,14 @@
                         };
                        
                         $.post(currentURL + "/api/floors", floorData, function(data) {
-                        window.location.href = "/dashboard";
                             console.log('sucessfully posted to floors databse')
                         });
                     };
+                }).then(function(results){
+                     res.redirect("/");
                 });
+
+               
 
 
 
@@ -125,4 +90,3 @@
 
             return false;
         });
-    </script>
