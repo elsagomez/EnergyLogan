@@ -1,13 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 html {
-    background: url(../images/login-background.jpg) no-repeat;
-    -webkit-background-size: cover;
+    
+    background: url(../images/login-background.jpg) no-repeat center center fixed;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
 body {
+      background: url(../images/login-background.jpg) no-repeat center center fixed;
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
