@@ -15,9 +15,14 @@
 }
 
 .headers{
-	background-color: gray;
+	background-color: black;
 	color: white;
 	font-weight: bold;	
+}
+
+.btnxt{
+	background-color: #f1c40f;
+	font-weight: bolder;
 }
 
 /*.headerRoom{
