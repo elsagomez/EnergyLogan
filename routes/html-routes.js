@@ -108,7 +108,8 @@ module.exports = function(app) {
         css : '<link rel="stylesheet" type="text/css" href="../../css/style.css">',
         surveys: dbSurveys,
         floor_number: dbSurveys[0].floor_number,
-        building: dbSurveys[0].Project.project_name
+        building: dbSurveys[0].Project.project_name,
+        project_id: dbSurveys[0].Project.project_id
       };
       res.render("newsurveyform",hbsObject);
       // console.log()
