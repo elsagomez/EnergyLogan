@@ -20,7 +20,12 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
         len: [1]
-    }
+    },
+    fixture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
   },
     {
       // We're saying that we want our Projects to have Surveys
@@ -39,25 +44,6 @@ module.exports = function(sequelize, DataTypes) {
           });
         }
       }
-    },
-    {
-      //for join? don't want to put survey id into fixutures table per se via association
-      prefixture_id: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        len: [1]
-       }
-      // // We're saying that we want our Fixtures to have Surveys
-      // classMethods: {
-      //   associate: function(models) {
-      //     // A Fixtures (foreignKey) is required or a Surveys can't be made
-      //     Surveys.belongsTo(models.Fixtures, {
-      //       foreignKey: {
-      //         allowNull: false
-      //       }
-      //     });
-      //   }
-      // }
     }
   );
   return Surveys;

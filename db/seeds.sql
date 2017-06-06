@@ -860,7 +860,7 @@ VALUES
 
 
 INSERT INTO surveys
-  (ProjectProjectId, floor_number, FloorFloorId, room, PrefixturePreFixID, quantity)
+  (ProjectProjectId, floor_number, FloorFloorId, room, fixture, quantity)
 VALUES 
 	(1, 1, 1, "Hallway", "CF26/4-L", 200),
 	(1, 1, 1, "Room 1", "CF60/1", 4),
