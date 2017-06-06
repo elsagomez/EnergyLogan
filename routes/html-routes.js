@@ -61,8 +61,8 @@ module.exports = function(app) {
     app.get("/newprojectform", function(req, res) {
         var hbsObject = {
             title: "Energy Logan Application: New Project Form",
-            css: '<link rel="stylesheet" type="text/css" href="css/newprojectform.css"> '
-            // css: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>'
+            // css: '<link rel="stylesheet" type="text/css" href="css/newprojectform.css"> '
+            css: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>'
         };
         res.render("newprojectform", hbsObject);
     });
@@ -147,6 +147,7 @@ module.exports = function(app) {
                                 css: '<link rel="stylesheet" type="text/css" href="../../css/style.css"> <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">',
                                 surveys: [],
                                 floor_number: dbFloors[0].floor_number,
+                                floor_id: dbFloors[0].floor_id,
                                 building: dbFloors[0].Project.project_name,
                                 project_id: dbFloors[0].Project.project_id
                             };
@@ -160,6 +161,7 @@ module.exports = function(app) {
                         css: '<link rel="stylesheet" type="text/css" href="../../css/style.css"> <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">',
                         surveys: dbSurveys,
                         floor_number: dbSurveys[0].floor_number,
+                        floor_id: dbSurveys[0].FloorFloorId,
                         building: dbSurveys[0].Project.project_name,
                         project_id: dbSurveys[0].Project.project_id
                     };

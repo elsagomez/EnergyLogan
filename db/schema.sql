@@ -51,14 +51,14 @@ CREATE TABLE PreFixtures (
     pre_watts INT,
     pre_wattsPerFix INT,
     primary key (preFixID)
+
 );
 
-
 CREATE TABLE surveys(
-	survey_id INT NOT NULL AUTO_INCREMENT,
+  survey_id INT NOT NULL AUTO_INCREMENT,
   ProjectProjectId INT NOT NULL,
   FloorFloorId INT NOT NULL,
-  PrefixturePreFixID VARCHAR(50),
+  fixture VARCHAR(255),
   floor_number INT,
   room VARCHAR(255) NOT NULL,
   quantity INT NOT NULL,
@@ -66,7 +66,6 @@ CREATE TABLE surveys(
   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (survey_id),
   FOREIGN KEY (ProjectProjectId) REFERENCES projects(project_id) ON DELETE CASCADE,
-  FOREIGN KEY (PrefixturePreFixID) REFERENCES PreFixtures(preFixID) ON DELETE CASCADE,
   FOREIGN KEY (FloorFloorId) REFERENCES Floors(floor_id) ON DELETE CASCADE
 );
 
