@@ -39,6 +39,24 @@ module.exports = function(app) {
         res.render("dashboard", hbsObject);
     });
 
+    // office/dashboard route loads office/dashboard page
+    app.get("/office-dashboard", function(req, res) {
+        var hbsObject = {
+            title: "Energy Logan Application: Dashboard",
+            css: '<link rel="stylesheet" type="text/css" href="css/dashboard.css">'
+        };
+        res.render("office-dashboard", hbsObject);
+    });
+
+    // technician/dashboard route loads technician/dashboard page
+    app.get("/technician-dashboard", function(req, res) {
+        var hbsObject = {
+            title: "Energy Logan Application: Dashboard",
+            css: '<link rel="stylesheet" type="text/css" href="css/dashboard.css">'
+        };
+        res.render("technician-dashboard", hbsObject);
+    });
+
     // newprojectform route loads newprojectform.handlebars
     app.get("/newprojectform", function(req, res) {
         var hbsObject = {
