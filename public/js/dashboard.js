@@ -61,12 +61,10 @@ function createNewGraph(projects) {
     newProjectPanelHeading.append(newProjectAddress);
     newProjectPanelBody.append(newProjectBody);
     newProjectPanel.append(newProjectPanelHeading);
-<<<<<<< HEAD
+
     newProjectPanel.append(newProjectPanelBody);
     newProjectPanel.data("projects", projects);
-=======
-    newProjectPanel.data("post", projects);
->>>>>>> 809dd90c71c6013420ac8abc8559284f51c7c859
+
     renderGraph(newProjectPanelBody.get(0), projects);
     newProjectPanelHeading.append(viewBtn);
     return newProjectPanel;
