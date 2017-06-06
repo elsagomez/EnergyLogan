@@ -5,7 +5,7 @@ $(document).ready(function() {
     var projectsContainer = $(".projects-container");
 
     // $(document).on("click", "button.delete", handleProjectDelete);
-    $(document).on("click", "button.edit", handleProjectView);
+    $(document).on("click", "button.view", handleProjectView);
 
     var projects;
 
@@ -34,7 +34,9 @@ function createNewGraph(projects) {
     newProjectPanelHeading.addClass("panel-heading");
     var viewBtn = $("<button>");
      // viewBtn.setAttribute("href","/");
-    viewBtn.addClass("btn btn-primary btn-warning center-block");
+
+    viewBtn.addClass("view btn btn-primary btn-warning center-block");
+   
 
     viewBtn.text("View Project");
     // viewBtn.setAttribute("href","/");
@@ -59,20 +61,25 @@ function createNewGraph(projects) {
     newProjectPanelHeading.append(newProjectAddress);
     newProjectPanelBody.append(newProjectBody);
     newProjectPanel.append(newProjectPanelHeading);
-    newProjectPanel.data("post", projects);
+
+    newProjectPanel.append(newProjectPanelBody);
+    newProjectPanel.data("projects", projects);
+
     renderGraph(newProjectPanelBody.get(0), projects);
     newProjectPanelHeading.append(viewBtn);
     return newProjectPanel;
   }
 
    function handleProjectView() {
-    var currentPost = $(this)
+     var currentProject = $(this)
       .parent()
       .parent()
-      .data("post");
+      .data("projects");
 
       console.log(this);
-    window.location.href = "/office/project/" + currentPost.id;
+
+      
+    window.location.href = "/newsurvey/" + currentProject.project_id + "/" + currentProject.floorsSurvey;
   }
 
 function renderGraph(canvas, projects){
@@ -84,7 +91,7 @@ var doughnut = new Chart(mychart, {
         labels: ["complete", "uncomplete"],
         datasets: [{
             data: [0, 100],
-            backgroundColor: ["#f1c40f", "#eee"]
+            backgroundColor: ["#f1c40f", "#000000"]
         }]
     },
     options: {
@@ -137,5 +144,15 @@ function showPercentage() {
 };
 
 }
+
+// function handleProjectView() {
+//      var currentProject = $(this)
+//     console.log(this);
+//     // var currentProject = $(this)
+    
+
+//     //   .data("projects");
+//     // window.location.href = "/projects?project_id=" + currentProject.project_id;
+//   }
 
 });
