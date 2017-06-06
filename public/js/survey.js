@@ -19,11 +19,11 @@ $(document).ready(function() {
         }
         // Constructing a newLine object to hand to the database
         var newRoomLine = {
-            ProjectProjectId: {
-                { project_id } },
+            ProjectProjectId: 
+                 project_id  ,
             PrefixturePreFixID: roomInput.val().trim(),
-            floor: {
-                { floor_number } },
+            floor: 
+                floor_number ,
             prefixture_id: fixtureInput.val().trim(),
             quantity: qtyInput.val().trim()
         };
