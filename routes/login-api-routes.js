@@ -11,10 +11,10 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 if(req.user.user_type ==="office"){
-    res.json("office-dashboard");
+    res.json("/office-dashboard");
 }
 else{
-    res.json("technician-dashboard");
+    res.json("/technician-dashboard");
 }
 
     console.log(req.user);
