@@ -29,6 +29,18 @@ CREATE TABLE projects(
   PRIMARY KEY (project_id)
 );
 
+CREATE TABLE floors (
+    floor_id INT NOT NULL AUTO_INCREMENT,
+    floor_number VARCHAR(50),
+    ProjectProjectId INT NOT NULL,
+    createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (floor_id),
+    FOREIGN KEY (ProjectProjectId)
+        REFERENCES projects (project_id)
+        ON DELETE CASCADE
+);
+
 CREATE TABLE PreFixtures (
     preFixID VARCHAR(50),
     pre_lampCode VARCHAR(255),
@@ -46,15 +58,16 @@ CREATE TABLE surveys(
 	survey_id INT NOT NULL AUTO_INCREMENT,
   ProjectProjectId INT NOT NULL,
   PrefixturePreFixID VARCHAR(50),
-  floor_number INT,
+  FloorFloorId INT,
+  floor_number VARCHAR(50),
   room VARCHAR(255) NOT NULL,
   quantity INT NOT NULL,
   createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (survey_id),
   FOREIGN KEY (ProjectProjectId) REFERENCES projects(project_id) ON DELETE CASCADE,
-  FOREIGN KEY (PrefixturePreFixID) REFERENCES PreFixtures(preFixID) ON DELETE CASCADE
-
+  FOREIGN KEY (PrefixturePreFixID) REFERENCES PreFixtures(preFixID) ON DELETE CASCADE,
+  FOREIGN KEY (FloorFloorId) REFERENCES floors(floor_id) ON DELETE CASCADE
 );
 
 

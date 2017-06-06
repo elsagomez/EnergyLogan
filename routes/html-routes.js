@@ -79,4 +79,21 @@ module.exports = function(app) {
   });
 
   // TODO: edit/audit survey page
+
+ app.get("/testdashboard", function(req, res) {
+    db.Projects.findAll({
+      include: [db.Floors, db.Surveys]
+    })
+    .then(function(dbProject) {
+      var hbsObject = {
+      title: "Energy Logan Application: Dashboard",
+      projects: dbProject
+    };
+    console.log(hbsObject);
+    // res.render("dashboard", hbsObject);
+    res.json(dbProject)
+    });
+  });
 };
+
+
