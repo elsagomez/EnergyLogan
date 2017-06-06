@@ -12,10 +12,10 @@
     <br>
     <div class="container">
        <div class="row">
-  <div class="col-md-6"><h4>Building:</h4></div>
+  <div class="col-md-6"><h4>Building: {{building}}</h4></div>
 
 
-<div class="col-md-2"><h4>Floor:</h4></div>
+<div class="col-md-2"><h4>Floor: {{floor_number}}</h4></div>
 
 
   <div class="col-md-4">
@@ -38,6 +38,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                          {{#each surveys}}
+                              <tr>
+                                <td>{{this.room}}</td>
+                                <td>{{this.PrefixturePreFixID}}</td>
+                                <td>{{this.quantity}}</td>
+                              </tr>
+
+                          {{/each}}
                         </tbody>
                     </table>
                   </div>
@@ -67,5 +75,5 @@
 
                 
             
-        <script src="js/survey.js"></script>
-        <script src="js/autocomplete.js"></script>
+        <script src="../..js/survey.js"></script>
+        <script src="../..js/autocomplete.js"></script>
