@@ -32,6 +32,11 @@ module.exports = function(sequelize, DataTypes) {
               allowNull: false
             }
           });
+          Surveys.belongsTo(models.Floors, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
         }
       }
     },

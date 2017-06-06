@@ -22,6 +22,9 @@ module.exports = function(sequelize, DataTypes) {
               allowNull: false
             }
           });
+          Floors.hasMany(models.Surveys, {
+                      onDelete: "cascade"
+          });
         }
       }
     }
