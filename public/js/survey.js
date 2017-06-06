@@ -32,7 +32,7 @@ $(document).ready(function() {
 
         // AJAX post the data to the projects API. 
         $.post(currentURL + "/api/surveys", newRoomLine, function(data) {
-            alert("posted to surveys")
+            // alert("posted to surveys")
             window.location.href = "/newsurvey/" + parseInt($("#project_id").text());
         });
 
