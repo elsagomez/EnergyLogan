@@ -14,26 +14,35 @@ $(document).ready(function() {
             alert("please fill out all fields");
             return;
         }
+
         // Constructing a newLine object to hand to the database
         var newRoomLine = {
-            ProjectProjectId: {
-                { project_id } },
-            PrefixturePreFixID: roomInput.val().trim(),
-            floor: {
-                { floor_number } },
-            prefixture_id: fixtureInput.val().trim(),
+            ProjectProjectId: parseInt($("#project_id").text()),
+            room: roomInput.val().trim(),
+            floor_number: $("#floor_number").text(),
+            FloorFloorId: parseInt($("#floor_id").text()),
+            fixture: fixtureInput.val().trim(),
             quantity: qtyInput.val().trim()
         };
 
-        console.log(newRoomLine.room);
+        console.log(newRoomLine);
+
+        // Grab the URL of the website
+        var currentURL = window.location.origin;
+
+        // AJAX post the data to the projects API. 
+        $.post(currentURL + "/api/surveys", newRoomLine, function(data) {
+            alert("posted to surveys")
+            window.location.href = "/newsurvey/" + parseInt($("#project_id").text());
+        });
+
+
+        $("#nextFloor").onClick(function{
+            queryurl= window.location.origin+"/api/projects/"+
+             $.get("/api/projects/", function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+
     }
-
-    $("#nextFloor").onClick(function{
-        queryurl= "/api/projects/"+
-         $.get("/api/projects/", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-
-    })
 
 });

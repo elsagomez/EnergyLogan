@@ -11,20 +11,12 @@
     background-color: #f1c40f;
 }
 
-.alert-warning {
-    background-color: #eee;
-    border-color: #eee;
-}
-
-.btn-warning {
-	background-color: #f1c40f;
+.btn-primary {
+    background-color: #f1c40f;
     border-color: #f1c40f;
 }
-.btn-warning:hover {
+.btn-primary:hover {
 	background-color: #fff;
 	color: #f1c40f;
 	border-color: #f1c40f;
-}
-.text-center {
-	color: #333;
 }

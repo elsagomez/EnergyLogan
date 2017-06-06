@@ -1,8 +1,27 @@
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Energy Logan</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="tag"><a href="/office-dashboard"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+            <li class="tag"><a href="#"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+            <li class="tag dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">View<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Recent</a></li>
+                    <li><a href="#">Progress</a></li>
+                    <li><a href="#">Project ID</a></li>
+                </ul>
+            </li>
+            <button class="btn navbar-btn" id="newproject">Add Project</button>
+        </ul>
+    </div>
+</nav>
+
     <div class="container">
-        <h2>New Project Form</h2>
+        <h2>New Project</h2>
         <hr>
-        <h3><strong>Please fill this form to record a new project</strong></h3>
-        <hr>
+        <h3><strong>Project Info</strong></h3>
         <h4>Project Name</h4>
         <input type="text" name="" id="project_name" class="form-control form-required" required>
         <h4>Customer</h4>
@@ -27,15 +46,10 @@
          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
         </button>
 
-<br><br>
-       
- <hr>
-        <footer class="footer">
-            <div class="container">
-                <a href="https://github.com/elsagomez/EnergyLogan">GitHub Repo</a></p>
-            </div>
-        </footer>
+        <hr>
+
     </div>
+
 
     <script type="text/javascript">
         // Chosen CSS
@@ -126,4 +140,7 @@
 
             return false;
         });
+
+            
     </script>
+ 

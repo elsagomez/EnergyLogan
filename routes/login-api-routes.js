@@ -11,10 +11,10 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 if(req.user.user_type ==="office"){
-    res.json("/newprojectform");
+    res.json("/office-dashboard");
 }
 else{
-    res.json("/newsurvey");
+    res.json("/technician-dashboard");
 }
 
     console.log(req.user);
@@ -42,9 +42,17 @@ else{
     res.redirect("/");
   });
 
+  app.get("/api/users", function(req, res) {
+    db.Users.findAll({}).then(function(dbProject) {
+     
+      res.json(dbUsers);
+
+    });
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
-    if (!req.user) {
+    if (!req.users) {
       // The user is not logged in, send back an empty object
       res.json({});
     }
@@ -52,8 +60,9 @@ else{
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
-        id: req.user.id
+        email: req.users.email,
+        id: req.users.id,
+        user_type: req.users.user_type
       });
     }
   });

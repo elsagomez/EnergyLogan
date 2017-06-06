@@ -5,7 +5,7 @@ $(document).ready(function() {
     var projectsContainer = $(".projects-container");
 
     // $(document).on("click", "button.delete", handleProjectDelete);
-    // $(document).on("click", "button.edit", handleProjectView);
+    $(document).on("click", "button.view", handleProjectView);
 
     var projects;
 
@@ -28,39 +28,56 @@ $(document).ready(function() {
     }
 
 function createNewGraph(projects) {
-    var newPostPanel = $("<div>");
-    newPostPanel.addClass("col-md-4");
-    var newPostPanelHeading = $("<div>");
-    newPostPanelHeading.addClass("panel-heading");
-    var editBtn = $("<button>");
-    editBtn.text("View Project");
-    editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h3>");
-    var newPostDate = $("<small>");
-    var newPostAuthor = $("<h5>");
-    newPostAuthor.text(projects.address);
-    newPostAuthor.css({
-      float: "left",
-      color: "blue",
+    var newProjectPanel = $("<div>");
+    newProjectPanel.addClass("col-md-4");
+    var newProjectPanelHeading = $("<div>");
+    newProjectPanelHeading.addClass("panel-heading");
+    var viewBtn = $("<button>");
+     // viewBtn.setAttribute("href","/");
+
+    viewBtn.addClass("view btn btn-primary btn-warning center-block");
+   
+
+    viewBtn.text("View Project");
+    // viewBtn.setAttribute("href","/");
+    var newProjectTitle = $("<h3>");
+    newProjectTitle.addClass("text-center");
+
+    var newProjectAddress = $("<h5>");
+    newProjectAddress.addClass("text-center");
+    newProjectAddress.text(projects.address);
+    newProjectAddress.css({
+      // color: "blue",
       "margin-top":
       "-5px"
     });
-    var newPostPanelBody = $("<canvas>");
-    newPostPanelBody.addClass("panel-body doughnutChart");
-    var newPostBody = $("<p>");
-    newPostTitle.text(projects.customer + " ");
-    newPostBody.text("aqui la grafica");
-  
-    
-    newPostPanelHeading.append(editBtn);
-    newPostPanelHeading.append(newPostTitle);
-    newPostPanelHeading.append(newPostAuthor);
-    newPostPanelBody.append(newPostBody);
-    newPostPanel.append(newPostPanelHeading);
-    newPostPanel.append(newPostPanelBody);
-    newPostPanel.data("post", projects);
-    renderGraph(newPostPanelBody.get(0), projects);
-    return newPostPanel;
+    var newProjectPanelBody = $("<canvas>");
+    newProjectPanelBody.addClass("panel-body doughnutChart");
+    var newProjectBody = $("<h5>");
+    newProjectBody.addClass("text-center");
+    newProjectTitle.text(projects.customer + " ");
+    newProjectPanel.append(newProjectPanelBody);
+    newProjectPanelHeading.append(newProjectTitle);
+    newProjectPanelHeading.append(newProjectAddress);
+    newProjectPanelBody.append(newProjectBody);
+    newProjectPanel.append(newProjectPanelHeading);
+
+    newProjectPanel.append(newProjectPanelBody);
+    newProjectPanel.data("projects", projects);
+
+    renderGraph(newProjectPanelBody.get(0), projects);
+    newProjectPanelHeading.append(viewBtn);
+    return newProjectPanel;
+  }
+
+   function handleProjectView() {
+     var currentProject = $(this)
+      .parent()
+      .parent()
+      .data("projects");
+
+      console.log(this);
+    window.location.href = "/office/project/" + currentProject.project_id;
   }
 
 function renderGraph(canvas, projects){
@@ -72,7 +89,7 @@ var doughnut = new Chart(mychart, {
         labels: ["complete", "uncomplete"],
         datasets: [{
             data: [0, 100],
-            backgroundColor: ["#f1c40f", "#eee"]
+            backgroundColor: ["#f1c40f", "#000000"]
         }]
     },
     options: {
@@ -80,11 +97,11 @@ var doughnut = new Chart(mychart, {
         legend: {
             display: false
         },
-        title: {
-            display: true,
-            text: "",
-            position: "bottom"
-        },
+        // title: {
+        //     display: true,
+        //     text: "",
+        //     position: "bottom"
+        // },
         animation: {
             animateScale: true,
             onComplete: showPercentage
@@ -97,7 +114,7 @@ var doughnut = new Chart(mychart, {
 	var x = projects.floorsSurvey/projects.numberofFloors;
     doughnut.data.datasets[0].data[0] = x; // numerator/denominator || use sequalize to dynamically update data
     doughnut.data.datasets[0].data[1] = 1-x; // (denominator - numerator)/denominator;
-    doughnut.options.title.text = "Project 1";
+    doughnut.options.title.text = "Progress";
     doughnut.update();
     // });
 
@@ -125,5 +142,15 @@ function showPercentage() {
 };
 
 }
+
+// function handleProjectView() {
+//      var currentProject = $(this)
+//     console.log(this);
+//     // var currentProject = $(this)
+    
+
+//     //   .data("projects");
+//     // window.location.href = "/projects?project_id=" + currentProject.project_id;
+//   }
 
 });
