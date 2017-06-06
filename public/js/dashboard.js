@@ -35,17 +35,17 @@ function createNewGraph(projects) {
     var viewBtn = $("<button>");
      // viewBtn.setAttribute("href","/");
     viewBtn.addClass("btn btn-primary btn-warning center-block");
-   
+
     viewBtn.text("View Project");
     // viewBtn.setAttribute("href","/");
     var newProjectTitle = $("<h3>");
     newProjectTitle.addClass("text-center");
-   
+
     var newProjectAddress = $("<h5>");
     newProjectAddress.addClass("text-center");
     newProjectAddress.text(projects.address);
     newProjectAddress.css({
-      color: "blue",
+      // color: "blue",
       "margin-top":
       "-5px"
     });
@@ -54,17 +54,14 @@ function createNewGraph(projects) {
     var newProjectBody = $("<h5>");
     newProjectBody.addClass("text-center");
     newProjectTitle.text(projects.customer + " ");
-    
-  
-    
-    newProjectPanelHeading.append(viewBtn);
+    newProjectPanel.append(newProjectPanelBody);
     newProjectPanelHeading.append(newProjectTitle);
     newProjectPanelHeading.append(newProjectAddress);
     newProjectPanelBody.append(newProjectBody);
     newProjectPanel.append(newProjectPanelHeading);
-    newProjectPanel.append(newProjectPanelBody);
     newProjectPanel.data("post", projects);
     renderGraph(newProjectPanelBody.get(0), projects);
+    newProjectPanelHeading.append(viewBtn);
     return newProjectPanel;
   }
 
@@ -87,7 +84,7 @@ var doughnut = new Chart(mychart, {
         labels: ["complete", "uncomplete"],
         datasets: [{
             data: [0, 100],
-            backgroundColor: ["#f1c40f", "#000000"]
+            backgroundColor: ["#f1c40f", "#eee"]
         }]
     },
     options: {
@@ -95,11 +92,11 @@ var doughnut = new Chart(mychart, {
         legend: {
             display: false
         },
-        title: {
-            display: true,
-            text: "",
-            position: "bottom"
-        },
+        // title: {
+        //     display: true,
+        //     text: "",
+        //     position: "bottom"
+        // },
         animation: {
             animateScale: true,
             onComplete: showPercentage
