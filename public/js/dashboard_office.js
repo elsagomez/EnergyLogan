@@ -89,7 +89,7 @@ var doughnut = new Chart(mychart, {
         labels: ["complete", "uncomplete"],
         datasets: [{
             data: [0, 100],
-            backgroundColor: ["#f1c40f", "#eee"]
+            backgroundColor: ["#f1c40f", "#000000"]
         }]
     },
     options: {
