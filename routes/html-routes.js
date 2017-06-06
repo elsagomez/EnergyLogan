@@ -56,27 +56,82 @@ module.exports = function(app) {
       },
       include: [db.Projects]
     })
-    .then(function(dbProject) {
+    .then(function(dbSurveys) {
       var hbsObject = {
       title: "Energy Logan Application: Project View",
-      surveys: dbProject
+      surveys: dbSurveys
     };
     console.log(hbsObject);
     res.render("project-officeview", hbsObject);
-    // res.json(dbProject)
+    // res.json(dbSurveys)
     });
   });
 
   // TODO: edit/audit project page
 
+  // when technician selects project from dashboard, sends them here, which redirects to last floor updated
+  app.get("/newsurvey/:project_id", function(req, res) {
+    db.Floors.findAll({
+      where: {
+        ProjectProjectId: req.params.project_id
+      },
+      include: [db.Surveys]
+    })
+    .then(function(dbFloors) {
+      //default case if no survey data added yet, start at floor index 0
+      var indexOfLastFloorUpdated =0;
+      //start at last floor and check if survey data exists. store index of last floor with survey data, break
+      for (var i = dbFloors.length -1; i >=0 ; i--) {
+        if (dbFloors[i].Surveys[0]) {
+          indexOfLastFloorUpdated=i;
+          break
+        }
+      }
+      //redirect to /newsurvey/current project id/floor number where technician left off
+      res.redirect("/newsurvey/"+dbFloors[0].ProjectProjectId+"/"+dbFloors[indexOfLastFloorUpdated].floor_number);
+    // res.json(dbFloors)
+    });
+  });
+
   // newsurvey route loads newsurvey.handlebars
-  app.get("/newsurvey", function(req, res) {
-    var hbsObject = {
-      title: "Energy Logan Application: New Survey",
-      css : '<link rel="stylesheet" type="text/css" href="css/style.css">'
-    };
-    res.render("newsurveyform",hbsObject);
+  app.get("/newsurvey/:project_id/:floor_number", function(req, res) {
+    db.Surveys.findAll({
+      where: {
+        ProjectProjectId: req.params.project_id,
+        floor_number: req.params.floor_number
+      },
+      include: [db.Projects]
+    }) 
+    .then(function(dbSurveys) {
+      var hbsObject = {
+        title: "Energy Logan Application: New Survey",
+        css : '<link rel="stylesheet" type="text/css" href="../../css/style.css">',
+        surveys: dbSurveys,
+        floor_number: dbSurveys[0].floor_number,
+        building: dbSurveys[0].Project.project_name
+      };
+      res.render("newsurveyform",hbsObject);
+      // console.log()
+      // res.json(dbSurveys[0])
+    });
   });
 
   // TODO: edit/audit survey page
+
+ app.get("/testdashboard", function(req, res) {
+    db.Projects.findAll({
+      include: [db.Floors, db.Surveys]
+    })
+    .then(function(dbProject) {
+      var hbsObject = {
+      title: "Energy Logan Application: Dashboard",
+      projects: dbProject
+    };
+    console.log(hbsObject);
+    // res.render("dashboard", hbsObject);
+    res.json(dbProject)
+    });
+  });
 };
+
+

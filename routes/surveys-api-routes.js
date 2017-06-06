@@ -50,9 +50,6 @@ app.get("/api/projects/progress/:id", function(req, res) {
       //   });
       // });
 
-
-  
-
   app.delete("/api/surveys/:id", function(req, res) {
     // Delete the Survey with the id available to us in req.params.id
     db.Surveys.destroy({
