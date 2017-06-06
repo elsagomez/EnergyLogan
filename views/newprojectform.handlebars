@@ -22,9 +22,12 @@
         <input type="text" name="" id="comments" class="form-control">
         <span class="survey-error-span" id="err-comments"></span>
         <hr>
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+        <!-- Submit Button -->  
+         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
         </button>
+
+
+       
 <!--         <hr>
         <footer class="footer">
             <div class="container">
@@ -107,6 +110,7 @@
                         };
                        
                         $.post(currentURL + "/api/floors", floorData, function(data) {
+                        window.location.href = "/dashboard";
                             console.log('sucessfully posted to floors databse')
                         });
                     };
