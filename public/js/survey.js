@@ -34,16 +34,38 @@ $(document).ready(function() {
         // AJAX post the data to the projects API. 
         $.post(currentURL + "/api/surveys", newRoomLine, function(data) {
             // alert("posted to surveys")
-            window.location.href = "/newsurvey/" + parseInt($("#project_id").text());
+            window.location.href = "/newsurvey/" + parseInt($("#project_id").text()) + "/" + $("#floor_number").text();
+        });
+    }
+
+    $("#nextFloor").click(function() {
+        // alert('click')
+        queryurl = window.location.origin + "/api/projects/" + parseInt($("#project_id").text());
+        console.log(queryurl)
+        $.get(queryurl, function(data, status) {
+            console.log(data.floors)
+            if (data.floors.indexOf($("#floor_number").text()) === data.floors.length) {
+                alert('Survey Complete')
+                window.location.href = "/technician-dashboard/"
+            } else {
+                nextFloorIndex = data.floors.split(",").indexOf($("#floor_number").text())
+                console.log(nextFloorIndex)
+                nextFloorIndex++;
+                console.log(nextFloorIndex)
+                nextFloorNumber = data.floors[nextFloorIndex]
+                console.log(nextFloorNumber)
+
+                window.location.href = "/newsurvey/" + parseInt($("#project_id").text()) + "/" + nextFloorNumber;
+            }
+
         });
 
+    });
 
-        // $("#nextFloor").onClick(function{
-        //     queryurl= window.location.origin+"/api/projects/"+
-        //      $.get("/api/projects/", function(data, status){
-        //     alert("Data: " + data + "\nStatus: " + status);
-        // });
+    $("#gotofloor").click(function(event) {
+        event.preventDefault();
 
-    }
+        window.location = window.location.origin + "/newsurvey/" + parseInt($("#project_id").text()) + "/" + $("#goFloor").val().trim();
+    });
 
 });
