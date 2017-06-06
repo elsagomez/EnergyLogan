@@ -17,6 +17,7 @@ $(document).ready(function() {
 
         // Constructing a newLine object to hand to the database
         var newRoomLine = {
+
             ProjectProjectId: parseInt($("#project_id").text()),
             room: roomInput.val().trim(),
             floor_number: $("#floor_number").text(),
