@@ -79,7 +79,7 @@ function createNewGraph(projects) {
       console.log(this);
 
       
-    window.location.href = "/newsurvey/" + currentProject.project_id + "/" + currentProject.floorsSurvey;
+    window.location.href = "/newsurvey/" + currentProject.project_id;
   }
 
 function renderGraph(canvas, projects){
