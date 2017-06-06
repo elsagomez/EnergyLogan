@@ -37,11 +37,11 @@ $(document).ready(function() {
         });
 
 
-        $("#nextFloor").onClick(function{
-            queryurl= window.location.origin+"/api/projects/"+
-             $.get("/api/projects/", function(data, status){
-            alert("Data: " + data + "\nStatus: " + status);
-        });
+        // $("#nextFloor").onClick(function{
+        //     queryurl= window.location.origin+"/api/projects/"+
+        //      $.get("/api/projects/", function(data, status){
+        //     alert("Data: " + data + "\nStatus: " + status);
+        // });
 
     }
 
