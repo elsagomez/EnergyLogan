@@ -14,22 +14,30 @@
                     <li><a href="#">Project ID</a></li>
                 </ul>
             </li>
-            <button class="btn navbar-btn">Add Project</button>
+            <button class="btn navbar-btn" id="newproject">Add Project</button>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <h3>Main Container</h3>
-    <p>Add text here.</p>
+    <h3>Projects Dashboard</h3>
+    <p>Completion Progress</p>
+
+
     <div class="row">
+     <div class="col-md-12 projects-container">
+      </div>
+
+<!-- 
         <div class="col-md-3">
             <canvas class="doughnutChart"></canvas>
-        </div>
+        </div> -->
 
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
-<script type="text/javascript">
+<script src="js/dashboard.js" type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script src="js/dashboard.js" type="text/javascript"></script> -->
+<!-- <script type="text/javascript">
 var mychart = $(".doughnutChart").get(0).getContext("2d");
 var doughnut = new Chart(mychart, {
     type: "doughnut",
@@ -83,6 +91,10 @@ var doughnut = new Chart(mychart, {
 
     });
 
+     $("#newproject").on("click", function(){
+     window.location.href = "/newprojectform";
+     });
+
 function showPercentage() {
     var canvas = $(".doughnutChart");
     var context = canvas.get(0).getContext("2d");
@@ -98,5 +110,7 @@ function showPercentage() {
     context.fillStyle = 'black';
     context.fillText(doughnut.data.datasets[0].data[0] + "%", cx, cy);
 };
-</script>
+</script> -->
+
+
 
