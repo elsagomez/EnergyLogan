@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Floor</th>
+            <th>Room</th>
+            <th>Fixture ID</th>
+            <th>Quantity</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+
+    	{{#each surveys}}
+            <tr>
+                <td>{{this.floor_number}}</td>
+                <td>{{this.room}}</td>
+                <td>{{this.PrefixturePreFixID}}</td>
+                <td>{{this.quantity}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs edit-btn' data-id="{{this.survey_id}}" href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs delete-btn" data-id="{{this.survey_id}}"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+      	{{/each}}
+
+    </table>
+    </div>
+</div>

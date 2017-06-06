@@ -15,6 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        len: [1]
     }
   },
     {
@@ -27,13 +32,18 @@ module.exports = function(sequelize, DataTypes) {
               allowNull: false
             }
           });
+          Surveys.belongsTo(models.Floors, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
         }
       }
     },
     {
       //for join? don't want to put survey id into fixutures table per se via association
-      fixture_id: {
-        type: DataTypes.INTEGER,
+      prefixture_id: {
+        type: DataTypes.STRING,
         allowNull: false,
         len: [1]
        }
@@ -48,13 +58,6 @@ module.exports = function(sequelize, DataTypes) {
       //     });
       //   }
       // }
-    },
-    {
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        len: [1]
-       }
     }
   );
   return Surveys;

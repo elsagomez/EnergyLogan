@@ -21,28 +21,28 @@ $(document).ready(function() {
         }
  // Constructing a newLine object to hand to the database
     var newRoomLine = {
-      room: roomInput
-        .val(),
-      fixture: fixtureInput
-        .val(),
-      qty: qtyInput.val().trim()
+      ProjectProjectId: {{project_id}},
+      PrefixturePreFixID: roomInput.val().trim(),
+      floor: {{floor_number}},
+      prefixture_id: fixtureInput.val().trim(),
+      quantity: qtyInput.val().trim()
     };
 
     console.log(newRoomLine.room);
 
 
 
-    var row = $("<tr>");
-    var td = $("<td>" + newRoomLine.room + "</td>");
-                row.append(td);
-    var td = $("<td>" + newRoomLine.fixture + "</td>");
-                row.append(td);
-    var td = $("<td>" + newRoomLine.qty + "</td>");
-     row.append(td);
-    var td = $("<button>X</button>");
-                row.append(td);
+    // var row = $("<tr>");
+    // var td = $("<td>" + newRoomLine.room + "</td>");
+    //             row.append(td);
+    // var td = $("<td>" + newRoomLine.fixture + "</td>");
+    //             row.append(td);
+    // var td = $("<td>" + newRoomLine.qty + "</td>");
+    //  row.append(td);
+    // var td = $("<button>X</button>");
+    //             row.append(td);
 
-    $("tbody").prepend(row);
+    // $("tbody").prepend(row);
 
     
 

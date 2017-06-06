@@ -13,22 +13,32 @@
                     <li><a href="#">Project ID</a></li>
                 </ul>
             </li>
-            <button class="btn navbar-btn">Add Project</button>
+            <button class="btn navbar-btn" id="newproject">Add Project</button>
         </ul>
     </div>
 </nav>
 <div class="container">
-    <h3>Main Container</h3>
-    <p>Add text here.</p>
+    <h3>Projects Dashboard</h3>
+    <p>Completion Progress</p>
+
+
     <div class="row">
+     <div class="col-md-12 projects-container">
+      </div>
+
+<!-- 
         <div class="col-md-3">
             <canvas class="doughnutChart"></canvas>
-        </div>
+
+        </div> -->
 
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
-<script type="text/javascript">
+<script src="js/dashboard.js" type="text/javascript"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script src="js/dashboard.js" type="text/javascript"></script> -->
+<!-- <script type="text/javascript">
+
 var mychart = $(".doughnutChart").get(0).getContext("2d");
 var doughnut = new Chart(mychart, {
     type: "doughnut",
@@ -51,23 +61,61 @@ var doughnut = new Chart(mychart, {
         },
         animation: {
             animateScale: true,
-            onComplete: showProgress
+            onComplete: showPercentage
         }
     }
 });
 
-$(document).ready(function() {
-    doughnut.data.datasets[0].data[0] = 90; //use sequalize to dynamically update data
-    doughnut.data.datasets[0].data[1] = 10;
-    doughnut.options.title.text = "Project 1";
-    doughnut.update();
-});
+var denominator = 0;
+var numerator = 0;
 
-function showProgress() {
+doughnut.data.datasets[0].data[0] = numerator/denominator;
+doughnut.data.datasets[0].data[1] = (denominator - numerator)/denominator;
+doughnut.options.title.text = "Project 1";
+doughnut.update();
+var floorString = "";
+var currentURL = window.location.origin;
+
+// calculate denominator by drawing data from the projects table
+    $.get(currentURL + "/api/projects", function(projectsData) {
+        floorString = projectsData[0].floors;
+        console.log("This is the floorString: " +floorString);
+        var allFloors = floorString.split(",");
+        for (var i = 0; i < allFloors.length; i++) {
+            allFloors[i] = allFloors[i].trim();
+        }
+        console.log("allFloors: " + allFloors);
+        denominator = allFloors.length;
+        console.log("denominator: " + denominator);
+    });
+
+// calculate numerator by drawing data from the surveys table
+    $.get(currentURL + "/api/surveys", function(surveysData) {
+      var allFloors2 = [];
+
+for (var i = 0; i < surveysData.length; i++) {
+  if (surveysData[i]["ProjectProjectId"] === 1) {
+      allFloors2.push(surveysData[i]["floor_number"]);
+      console.log("allFloors2: " + allFloors2);
+      var uniqueFloor = allFloors2.filter(function(itm, i, allFloors2){
+        return i == allFloors2.indexOf(itm);
+      });
+      console.log("uniqueFloor: " + uniqueFloor);
+  }
+}
+ numerator = uniqueFloor.length;
+console.log("numerator: " + numerator);
+    });
+
+     $("#newproject").on("click", function(){
+     window.location.href = "/newprojectform";
+     });
+
+function showPercentage() {
     var canvas = $(".doughnutChart");
     var context = canvas.get(0).getContext("2d");
-    console.log(canvas);
-    console.log(context);
+    //console.log(canvas);
+    //console.log(context);
 
     var cx = canvas.width / 2;
     var cy = canvas.height / 2;
@@ -78,4 +126,8 @@ function showProgress() {
     context.fillStyle = 'black';
     context.fillText(doughnut.data.datasets[0].data[0] + "%", cx, cy);
 };
-</script>
+
+</script> -->
+
+
+
