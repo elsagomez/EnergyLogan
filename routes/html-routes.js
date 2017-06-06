@@ -114,6 +114,7 @@ module.exports = function(app) {
 
     // newsurvey route loads newsurvey.handlebars
     app.get("/newsurvey/:project_id/:floor_number", function(req, res) {
+        var currentFloor =req.params.floor_number;
         db.Surveys.findAll({
                 where: {
                     ProjectProjectId: req.params.project_id,
@@ -160,7 +161,7 @@ module.exports = function(app) {
                         title: "Energy Logan Application: New Survey",
                         css: '<link rel="stylesheet" type="text/css" href="../../css/style.css"> <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">',
                         surveys: dbSurveys,
-                        floor_number: dbSurveys[0].floor_number,
+                        floor_number: currentFloor,
                         floor_id: dbSurveys[0].FloorFloorId,
                         building: dbSurveys[0].Project.project_name,
                         project_id: dbSurveys[0].Project.project_id
