@@ -1,3 +1,4 @@
+<div class="container">
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -17,7 +18,7 @@
         </ul>
     </div>
 </nav>
-
+</div>
     <div class="container">
         <h2>New Project</h2>
         <hr>
@@ -42,7 +43,7 @@
         <input type="text" name="" id="comments" class="form-control">
         <span class="survey-error-span" id="err-comments"></span>
         <hr>
-        <!-- Submit Button -->  
+        <!-- Submit Button -->
          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i> Submit
         </button>
 
@@ -72,7 +73,7 @@
             $(selector).chosen(config[selector]);
         }
 
-        // Capture the form inputs 
+        // Capture the form inputs
         $("#submit").on("click", function() {
 
             // Form validation
@@ -112,9 +113,9 @@
                 // Grab the URL of the website
                 var currentURL = window.location.origin;
 
-                // AJAX post the data to the projects API. 
+                // AJAX post the data to the projects API.
                 $.post(currentURL + "/api/projects", projectData, function(data) {
-                
+
                     alert("posted to projects")
 
                     // for each floor in floorsArr, post a new row in Floors table
@@ -123,7 +124,7 @@
                             floor_number: floorsArr[i],
                             ProjectProjectId: data.project_id
                         };
-                       
+
                         $.post(currentURL + "/api/floors", floorData, function(data) {
                         window.location.href = "/dashboard";
                             console.log('sucessfully posted to floors databse')
@@ -133,7 +134,7 @@
 
 
 
-               
+
             } else {
                 alert("Please fill out all fields before submitting!");
             }
@@ -141,6 +142,5 @@
             return false;
         });
 
-            
+
     </script>
- 
