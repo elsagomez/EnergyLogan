@@ -16,8 +16,21 @@ VALUES
   ("101 Easy Street", "Wall Street Inc.", "101 Easy Street, NY", "Jack Moneybags", "2127777777", "201000777", "10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30", "2017-07-11"),
   ("Cruise Plaza", "My Caribbean Cruises", "555 Carribean Way, Miami, FL", "Jack Sparrow", "8351234567", "107000333", "3,5,7, 9, Boiler Room", "2017-06-29"); 
 
-
-
+INSERT INTO floors
+	(ProjectProjectId, floor_number)
+VALUES
+	(1, "1"),
+	(1, "2"),
+	(1, "3"),
+	(1, "4"),
+	(2, "2"),
+	(2, "3"),
+	(2, "4"),
+	(2, "6"),
+	(3, "1"),
+	(3, "3"),
+	(3, "4"),
+	(3, "7");
 
 INSERT INTO PreFixtures
   (preFixID, pre_lampCode, pre_type , pre_desccription, pre_ballast, pre_lampNum, pre_watts, pre_wattsPerFix)
@@ -847,35 +860,35 @@ VALUES
 
 
 INSERT INTO surveys
-  (ProjectProjectId, floor_number, room, PrefixturePreFixID, quantity)
+  (ProjectProjectId, floor_number, FloorFloorId, room, PrefixturePreFixID, quantity)
 VALUES 
-	(1, 1, "Hallway", "CF26/4-L", 200),
-	(1, 1, "Room 1", "CF60/1", 4),
-	(1, 2, "Room 1", "CF60/1", 10),
-	(1, 3, "Hallway", "CF26/4-L", 200),
-	(1, 3, "Bathroom", "CF11/2", 30),
-	(1, 4, "Hallway", "CF26/4-L", 50),
-	(1, 4, "Room 1", "CF16/2D", 10),
-	(1, 4, "Room 2", "CF32/8-L", 55),
-	(1, 4, "Room 3", "CF32/6-L", 150),
-	(2, 1, "Lobby", "F34ILL", 300),
-	(2, 2, "Room 1", "CF60/1", 4),
-	(2, 2, "Room 2", "F34ILL", 10),
-	(2, 3, "Hallway", "CF26/4-L", 200),
-	(2, 4, "Hallway", "CF26/4-L", 50),
-	(2, 4, "Room 1", "CF16/2D", 10),
-	(2, 4, "Room 2", "CF32/8-L", 55),
-	(2, 4, "Room 3", "CF32/6-L", 150),
-	(2, 4, "Room 4", "CF16/2D", 10),
-	(2, 4, "Room 5", "CF32/8-L", 55),
-	(2, 4, "Room 6", "CF32/6-L", 150),
-	(3, 1, "Lobby", "CF26/4-L", 20),
-	(3, 1, "Bathroom", "F34ILL", 4),
-	(3, 2, "Room 1", "CF60/1", 10),
-	(3, 3, "Hallway", "CF26/4-L", 200),
-	(3, 3, "Bathroom", "CF11/2", 30),
-	(3, 4, "Hallway", "CF26/4-L", 50),
-	(3, 4, "Room 1", "CF16/2D", 10),
-	(3, 4, "Room 2", "CF32/8-L", 55),
-	(3, 4, "Room 3", "CF32/6-L", 150);
+	(1, 1, 1, "Hallway", "CF26/4-L", 200),
+	(1, 1, 1, "Room 1", "CF60/1", 4),
+	(1, 2, 2, "Room 1", "CF60/1", 10),
+	(1, 3, 3, "Hallway", "CF26/4-L", 200),
+	(1, 3, 3, "Bathroom", "CF11/2", 30),
+	(1, 4, 4, "Hallway", "CF26/4-L", 50),
+	(1, 4, 4, "Room 1", "CF16/2D", 10),
+	(1, 4, 4, "Room 2", "CF32/8-L", 55),
+	(1, 4, 4, "Room 3", "CF32/6-L", 150),
+	(2, 6, 8, "Lobby", "F34ILL", 300),
+	(2, 2, 5, "Room 1", "CF60/1", 4),
+	(2, 2, 5, "Room 2", "F34ILL", 10),
+	(2, 3, 6, "Hallway", "CF26/4-L", 200),
+	(2, 4, 7, "Hallway", "CF26/4-L", 50),
+	(2, 4, 7, "Room 1", "CF16/2D", 10),
+	(2, 4, 7, "Room 2", "CF32/8-L", 55),
+	(2, 4, 7, "Room 3", "CF32/6-L", 150),
+	(2, 4, 7, "Room 4", "CF16/2D", 10),
+	(2, 4, 7, "Room 5", "CF32/8-L", 55),
+	(2, 4, 7, "Room 6", "CF32/6-L", 150),
+	(3, 1, 9, "Lobby", "CF26/4-L", 20),
+	(3, 1, 9, "Bathroom", "F34ILL", 4),
+	(3, 7, 12, "Room 1", "CF60/1", 10),
+	(3, 3, 10, "Hallway", "CF26/4-L", 200),
+	(3, 3, 10, "Bathroom", "CF11/2", 30),
+	(3, 4, 11, "Hallway", "CF26/4-L", 50),
+	(3, 4, 11, "Room 1", "CF16/2D", 10),
+	(3, 4, 11, "Room 2", "CF32/8-L", 55),
+	(3, 4, 11, "Room 3", "CF32/6-L", 150);
 
