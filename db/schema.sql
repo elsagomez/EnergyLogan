@@ -66,7 +66,7 @@ CREATE TABLE surveys(
   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (survey_id),
   FOREIGN KEY (ProjectProjectId) REFERENCES projects(project_id) ON DELETE CASCADE,
-  FOREIGN KEY (FloorFloorId) REFERENCES Floors(floor_id) ON DELETE CASCADE
+  FOREIGN KEY (FloorFloorId) REFERENCES floors(floor_id) ON DELETE CASCADE
 );
 
 
