@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elsagomez/EnergyLogan.git"
+    "url": "git+https://github.com/lasperilla/elatest/.git"
   },
   "keywords": [
     "sequelize",
@@ -21,9 +21,9 @@
   "author": "Elsa Gomez, Lawrence Asperilla, April Wang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elsagomez/EnergyLogan/issues"
+    "url": "https://github.com/lasperilla/elatest/issues"
   },
-  "homepage": "https://github.com/elsagomez/EnergyLogan#readme",
+  "homepage": "https://github.com/lasperilla/elatest/#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
