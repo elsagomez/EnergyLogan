@@ -4,8 +4,39 @@ module.exports = function(app) {
   // Find all Projects and return them to the user with res.json
   app.get("/api/projects", function(req, res) {
     db.Projects.findAll({}).then(function(dbProject) {
+     
       res.json(dbProject);
+
     });
+  });
+
+  app.get("/api/projects_chart", function(req, res) {
+    db.Projects.findAll({raw:true}).then(function(dbProject) {
+
+      function computeFloor(index){   
+        console.log(index);
+        if (index < dbProject.length){
+          dbProject[index].numberofFloors = dbProject[index].floors.split(",").length;
+      db.sequelize.query("SELECT COUNT(DISTINCT floor_number) F from Surveys WHERE ProjectProjectId=?",{
+        replacements: [dbProject[index].project_id], 
+        type: db.sequelize.QueryTypes.SELECT
+
+    
+  }).then(f=>{
+
+    dbProject[index].floorsSurvey = f[0].F;
+      computeFloor(index+1)
+  })
+
+        }
+        else{
+          res.json(dbProject);
+        }
+      }
+      computeFloor(0);
+      })
+   
+
   });
 
   app.get("/api/projects/:id", function(req, res) {
