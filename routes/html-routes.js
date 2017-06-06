@@ -61,7 +61,8 @@ module.exports = function(app) {
     app.get("/newprojectform", function(req, res) {
         var hbsObject = {
             title: "Energy Logan Application: New Project Form",
-            css: '<!-- Chosen --> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>'
+            css: '<link rel="stylesheet" type="text/css" href="css/newprojectform.css"> '
+            // css: '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>'
         };
         res.render("newprojectform", hbsObject);
     });
