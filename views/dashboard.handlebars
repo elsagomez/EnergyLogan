@@ -1,5 +1,4 @@
 <nav class="navbar navbar-inverse">
-
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Energy Logan</a>
@@ -25,11 +24,11 @@
         <div class="col-md-3">
             <canvas class="doughnutChart"></canvas>
         </div>
-
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function() {
 var mychart = $(".doughnutChart").get(0).getContext("2d");
 var doughnut = new Chart(mychart, {
     type: "doughnut",
@@ -53,25 +52,23 @@ var doughnut = new Chart(mychart, {
         animation: {
             animateScale: true,
             onComplete: showPercentage
-
         }
     }
 });
 
-// $(document).ready(function() {
-    doughnut.data.datasets[0].data[0] = 2/7; // numerator/denominator || use sequalize to dynamically update data
-    doughnut.data.datasets[0].data[1] = 5/7; // (denominator - numerator)/denominator;
-    doughnut.options.title.text = "Project 1";
-    doughnut.update();
-    // });
+var denominator = 0;
+var numerator = 0;
 
-    var floorString = "";
-    var denominator = 0;
-    var numerator = 0;
+doughnut.data.datasets[0].data[0] = numerator/denominator;
+doughnut.data.datasets[0].data[1] = (denominator - numerator)/denominator;
+doughnut.options.title.text = "Project 1";
+doughnut.update();
+var floorString = "";
+var currentURL = window.location.origin;
 
-    var currentURL = window.location.origin;
-    $.get(currentURL + "/api/projects", function(data) {
-        floorString = data[0].floors;
+// calculate denominator by drawing data from the projects table
+    $.get(currentURL + "/api/projects", function(projectsData) {
+        floorString = projectsData[0].floors;
         console.log("This is the floorString: " +floorString);
         var allFloors = floorString.split(",");
         for (var i = 0; i < allFloors.length; i++) {
@@ -80,7 +77,24 @@ var doughnut = new Chart(mychart, {
         console.log("allFloors: " + allFloors);
         denominator = allFloors.length;
         console.log("denominator: " + denominator);
+    });
 
+// calculate numerator by drawing data from the surveys table
+    $.get(currentURL + "/api/surveys", function(surveysData) {
+      var allFloors2 = [];
+
+for (var i = 0; i < surveysData.length; i++) {
+  if (surveysData[i]["ProjectProjectId"] === 1) {
+      allFloors2.push(surveysData[i]["floor_number"]);
+      console.log("allFloors2: " + allFloors2);
+      var uniqueFloor = allFloors2.filter(function(itm, i, allFloors2){
+        return i == allFloors2.indexOf(itm);
+      });
+      console.log("uniqueFloor: " + uniqueFloor);
+  }
+}
+ numerator = uniqueFloor.length;
+console.log("numerator: " + numerator);
     });
 
 function showPercentage() {
@@ -98,5 +112,5 @@ function showPercentage() {
     context.fillStyle = 'black';
     context.fillText(doughnut.data.datasets[0].data[0] + "%", cx, cy);
 };
+});
 </script>
-
