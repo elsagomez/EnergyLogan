@@ -19,6 +19,7 @@
     "database": "x8vq2g36nkk3lucm",
     "use_env_variable": "JAWSDB_URL",
     "host": "d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect":"mysql",
+    "dialect":"mysql"
   }
+
 }
