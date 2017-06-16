@@ -17,7 +17,7 @@
     "username": "foopc1v3hefdfmeq",
     "password": "rbmc9wd9sukb54jh",
     "database": "x8vq2g36nkk3lucm",
-    "host": "ud6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "host": "d6vscs19jtah8iwb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect":"mysql",
     "port":"3306"
   }
