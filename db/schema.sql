@@ -2,7 +2,7 @@ CREATE DATABASE energylogan_db;
 
 USE energylogan_db;
 
-CREATE TABLE users(
+CREATE TABLE Users(
   user_id INT NOT NULL AUTO_INCREMENT,
   email VARCHAR(255) NOT NULL,
   user_type VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE users(
 );
 
 ##Projects Table
-CREATE TABLE projects(
+CREATE TABLE Projects(
   project_id INT NOT NULL AUTO_INCREMENT,
   project_name VARCHAR(255) NOT NULL,
   customer VARCHAR(255) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE projects(
   PRIMARY KEY (project_id)
 );
 
-CREATE TABLE floors (
+CREATE TABLE Floors (
     floor_id INT NOT NULL AUTO_INCREMENT,
     floor_number VARCHAR(50),
     ProjectProjectId INT NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE floors (
         ON DELETE CASCADE
 );
 
-CREATE TABLE PreFixtures (
+CREATE TABLE Prefixtures (
     preFixID VARCHAR(50),
     pre_lampCode VARCHAR(255),
     pre_type VARCHAR(255),
@@ -54,7 +54,7 @@ CREATE TABLE PreFixtures (
 
 );
 
-CREATE TABLE surveys(
+CREATE TABLE Surveys(
   survey_id INT NOT NULL AUTO_INCREMENT,
   ProjectProjectId INT NOT NULL,
   FloorFloorId INT NOT NULL,
