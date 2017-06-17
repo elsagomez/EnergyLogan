@@ -37,7 +37,7 @@ CREATE TABLE Floors (
     updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (floor_id),
     FOREIGN KEY (ProjectProjectId)
-        REFERENCES projects (project_id)
+        REFERENCES Projects (project_id)
         ON DELETE CASCADE
 );
 
@@ -65,8 +65,8 @@ CREATE TABLE Surveys(
   createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (survey_id),
-  FOREIGN KEY (ProjectProjectId) REFERENCES projects(project_id) ON DELETE CASCADE,
-  FOREIGN KEY (FloorFloorId) REFERENCES floors(floor_id) ON DELETE CASCADE
+  FOREIGN KEY (ProjectProjectId) REFERENCES Projects(project_id) ON DELETE CASCADE,
+  FOREIGN KEY (FloorFloorId) REFERENCES Floors(floor_id) ON DELETE CASCADE
 );
 
 
