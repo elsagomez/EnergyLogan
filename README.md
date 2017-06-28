@@ -11,22 +11,17 @@ http://energy-logan.herokuapp.com/
 #### Administrator
 
 
-LOGIN: elsa.ghdz@gmail.com
-PASSWORD: elsapass
-
-LOGIN: april@gmail.com
-PASSWORD: aprilpass
+LOGIN: admin@ela.com
+PASSWORD: admin
 
 
 
 #### Technician
 
 
-LOGIN: lawrence@gmail.com
-PASSWORD: lawpass
+LOGIN: tech@ela.com
+PASSWORD: tech
 
-LOGIN: alex@gmail.com
-PASSWORD: alexpass
 
 
 
