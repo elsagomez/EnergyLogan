@@ -4,7 +4,7 @@ Energy Logan is an easy-to-use solution designed to remedy frustrations faced in
 
 Energy Logan will set up adminitrator and technician accounts for your company according to your needs. 
 
-##### For DEMO purposes please follow the link and use the logins below:
+#### For DEMO purposes please follow the link and use the logins below:
 
 http://energy-logan.herokuapp.com/
 
