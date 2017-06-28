@@ -25,3 +25,12 @@ PASSWORD: tech
 
 
 ### HAPPY RETROFITTING!
+
+Web Application created at Rutgers Coding bootcamp by the foodie team:
+
+
+Lawrence Perilla:     https://github.com/lasperilla
+
+April Wang:     https://github.com/wyfapril
+
+Elsa Gomez      https://github.com/elsagomez
