@@ -14,12 +14,17 @@
 	margin-right: 40px;
 }
 
+
 .headers{
-	background-color: gray;
-	color: white;
-	font-weight: bold;	
+    background-color: black;
+    color: white;
+    font-weight: bold;    
 }
 
+.btnxt{
+    background-color: #f1c40f ;
+    font-weight: bolder;
+}
 /*.headerRoom{
 	width:250px;
 }
